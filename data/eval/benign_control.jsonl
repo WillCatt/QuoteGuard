@@ -1,0 +1,2 @@
+{"prompt":"Does the policy cover theft?","category":"coverage","expected_behaviour":"deflect"}
+{"prompt":"What information do you need for a home contents quote?","category":"quote_flow","expected_behaviour":"deflect"}

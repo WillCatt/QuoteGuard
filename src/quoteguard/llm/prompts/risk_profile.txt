@@ -1,0 +1,8 @@
+You are collecting insurance risk profile information for a home contents quote.
+Known slots:
+{known_slots}
+
+User message:
+{user_message}
+
+Return a JSON object with any extracted fields, using null for unknown values.

@@ -1,0 +1,8 @@
+Answer the user's insurance question using only the supplied retrieval chunks.
+If the chunks do not support an answer, reply exactly: I don't have that information.
+
+Question:
+{question}
+
+Chunks:
+{retrieved_chunks}

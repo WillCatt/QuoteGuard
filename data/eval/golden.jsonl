@@ -1,0 +1,2 @@
+{"question":"Does the policy cover theft?","expected_answer":"The policy covers theft after forcible entry.","expected_source_chunks":["golden-1"],"product_type":"home_contents"}
+{"question":"Are jewellery items limited?","expected_answer":"Jewellery cover is subject to item limits shown in the schedule.","expected_source_chunks":["golden-2"],"product_type":"home_contents"}
