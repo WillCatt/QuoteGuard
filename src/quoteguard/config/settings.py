@@ -18,6 +18,10 @@ class Settings(BaseModel):
     cache_dir: Path = Field(default=ROOT_DIR / "data" / "processed" / "cache")
     vector_store_dir: Path = Field(default=ROOT_DIR / "data" / "processed" / "chroma")
     parsed_dir: Path = Field(default=ROOT_DIR / "data" / "processed" / "parsed")
+    benchmark_dir: Path = Field(default=ROOT_DIR / "data" / "processed" / "benchmarks")
+    benchmark_report_path: Path = Field(
+        default=ROOT_DIR / "data" / "processed" / "benchmarks" / "retrieval_lab.json"
+    )
     chunks_path: Path = Field(default=ROOT_DIR / "data" / "processed" / "chunks" / "chunks.jsonl")
     audit_log_path: Path = Field(default=ROOT_DIR / "data" / "processed" / "logs" / "audit.jsonl")
     default_model: str = Field(default="llama3.1:8b-instruct-q4_K_M")
@@ -40,6 +44,18 @@ class Settings(BaseModel):
             parsed_dir=Path(
                 os.getenv("QUOTEGUARD_PARSED_DIR", ROOT_DIR / "data" / "processed" / "parsed")
             ),
+            benchmark_dir=Path(
+                os.getenv(
+                    "QUOTEGUARD_BENCHMARK_DIR",
+                    ROOT_DIR / "data" / "processed" / "benchmarks",
+                )
+            ),
+            benchmark_report_path=Path(
+                os.getenv(
+                    "QUOTEGUARD_BENCHMARK_REPORT_PATH",
+                    ROOT_DIR / "data" / "processed" / "benchmarks" / "retrieval_lab.json",
+                )
+            ),
             chunks_path=Path(
                 os.getenv(
                     "QUOTEGUARD_CHUNKS_PATH",
@@ -59,8 +75,16 @@ class Settings(BaseModel):
         )
 
     def ensure_directories(self) -> None:
-        for path in (self.data_dir, self.log_dir, self.cache_dir, self.vector_store_dir, self.parsed_dir):
+        for path in (
+            self.data_dir,
+            self.log_dir,
+            self.cache_dir,
+            self.vector_store_dir,
+            self.parsed_dir,
+            self.benchmark_dir,
+        ):
             path.mkdir(parents=True, exist_ok=True)
+        self.benchmark_report_path.parent.mkdir(parents=True, exist_ok=True)
         self.chunks_path.parent.mkdir(parents=True, exist_ok=True)
         self.audit_log_path.parent.mkdir(parents=True, exist_ok=True)
 

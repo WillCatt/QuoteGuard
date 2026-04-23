@@ -62,6 +62,26 @@ python3 scripts/build_index.py \
 
 Once dependencies are installed, swap `text_fallback` for `pymupdf4llm` or `docling`, `hashing` for `sentence_transformers`, and `jsonl` for `chroma`.
 
+## Retrieval Lab Dashboard
+
+To turn the ingestion and retrieval pipeline into a portfolio-friendly comparison artefact, build a benchmark report and open the Streamlit lab:
+
+```bash
+python3 scripts/build_benchmark_report.py \
+  --parser-backends pymupdf4llm docling \
+  --embedder-backends hashing sentence_transformers \
+  --vector-store-backends jsonl chroma
+
+streamlit run src/quoteguard/ui/app.py
+```
+
+The `Retrieval Lab` tab visualises:
+
+- parser-by-parser timing across parse, chunk, index, and query stages
+- sections and chunks produced per document
+- sample parsed section previews by backend
+- per-question retrieval latency and top retrieved chunks side by side
+
 ## Next Iteration Points
 
 - fetch and inspect real insurer PDFs, then compare `pymupdf4llm` vs `docling` on the actual corpus

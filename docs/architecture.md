@@ -32,3 +32,10 @@ The demo UI should expose:
 - retrieval query and top chunks
 - guardrail decisions
 - handoff decisions and audit trail
+
+The retrieval lab dashboard additionally exposes:
+
+- parser comparison across timing stages
+- document-level section and chunk counts by backend
+- sample section previews for parser quality inspection
+- question-level retrieval latency and top-hit comparisons
