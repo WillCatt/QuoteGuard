@@ -22,7 +22,7 @@ class Settings(BaseModel):
     audit_log_path: Path = Field(default=ROOT_DIR / "data" / "processed" / "logs" / "audit.jsonl")
     default_model: str = Field(default="llama3.1:8b-instruct-q4_K_M")
     json_model: str = Field(default="qwen2.5:7b-instruct")
-    embed_model: str = Field(default="bge-small-en-v1.5")
+    embed_model: str = Field(default="BAAI/bge-small-en-v1.5")
     product_type: str = Field(default="home_contents")
 
     @classmethod
@@ -54,7 +54,7 @@ class Settings(BaseModel):
             ),
             default_model=os.getenv("QUOTEGUARD_DEFAULT_MODEL", "llama3.1:8b-instruct-q4_K_M"),
             json_model=os.getenv("QUOTEGUARD_JSON_MODEL", "qwen2.5:7b-instruct"),
-            embed_model=os.getenv("QUOTEGUARD_EMBED_MODEL", "bge-small-en-v1.5"),
+            embed_model=os.getenv("QUOTEGUARD_EMBED_MODEL", "BAAI/bge-small-en-v1.5"),
             product_type=os.getenv("QUOTEGUARD_PRODUCT_TYPE", "home_contents"),
         )
 

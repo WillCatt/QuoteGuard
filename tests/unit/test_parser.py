@@ -4,6 +4,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from quoteguard.ingestion.parser import (
     ParserBackend,
@@ -21,8 +22,9 @@ class ParserTest(unittest.TestCase):
         self.assertEqual(sections[1].section_path, ["Coverage", "Limits"])
 
     def test_missing_explicit_backend_falls_back_to_text_parser(self) -> None:
-        parser = get_parser(ParserBackend.PYMUPDF4LLM)
-        self.assertIsInstance(parser, TextFallbackParser)
+        with patch("quoteguard.ingestion.parser.PyMuPDF4LLMParser", side_effect=ImportError):
+            parser = get_parser(ParserBackend.PYMUPDF4LLM)
+            self.assertIsInstance(parser, TextFallbackParser)
 
     def test_persist_parsed_document_writes_json(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

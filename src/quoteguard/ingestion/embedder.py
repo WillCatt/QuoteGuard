@@ -79,6 +79,10 @@ def get_embedder(
     if selected == EmbedderBackend.SENTENCE_TRANSFORMERS:
         try:
             return SentenceTransformerEmbedder(model_name=model_name)
-        except ImportError:
+        except Exception:
+            # SentenceTransformer initialization can fail even when the package is
+            # installed, for example due to missing local weights, offline model
+            # fetches, auth issues, or an invalid model id. Preserve the
+            # dependency-tolerant contract by falling back to hashing.
             return HashingEmbedder()
     return HashingEmbedder()
