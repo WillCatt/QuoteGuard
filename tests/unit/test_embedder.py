@@ -1,8 +1,14 @@
 from __future__ import annotations
 
 import unittest
+from unittest.mock import patch
 
-from quoteguard.ingestion.embedder import EmbedderBackend, HashingEmbedder, get_embedder
+from quoteguard.ingestion.embedder import (
+    EmbedderBackend,
+    HashingEmbedder,
+    SentenceTransformerEmbedder,
+    get_embedder,
+)
 
 
 class EmbedderTest(unittest.TestCase):
@@ -12,8 +18,9 @@ class EmbedderTest(unittest.TestCase):
         self.assertEqual(len(vector), 32)
 
     def test_sentence_transformers_request_falls_back_when_unavailable(self) -> None:
-        embedder = get_embedder(EmbedderBackend.SENTENCE_TRANSFORMERS)
-        self.assertIsInstance(embedder, HashingEmbedder)
+        with patch.object(SentenceTransformerEmbedder, "__init__", side_effect=RuntimeError):
+            embedder = get_embedder(EmbedderBackend.SENTENCE_TRANSFORMERS)
+            self.assertIsInstance(embedder, HashingEmbedder)
 
 
 if __name__ == "__main__":

@@ -4,9 +4,11 @@ import unittest
 from pathlib import Path
 
 from quoteguard.ingestion.models import Chunk
+from quoteguard.ingestion.embedder import EmbedderBackend
 from quoteguard.orchestration.handlers import ConversationOrchestrator
 from quoteguard.orchestration.state import ConversationState
 from quoteguard.retrieval.service import RetrievalService
+from quoteguard.retrieval.vector_store import VectorStoreBackend
 
 
 class RiskProfileFlowTest(unittest.TestCase):
@@ -23,7 +25,12 @@ class RiskProfileFlowTest(unittest.TestCase):
             )
         ]
         orchestrator = ConversationOrchestrator(
-            RetrievalService(chunks, store_path=Path("data/processed/chroma/test_risk_store.jsonl"))
+            RetrievalService(
+                chunks,
+                store_path=Path("data/processed/chroma/test_risk_store.jsonl"),
+                embedder_backend=EmbedderBackend.HASHING,
+                vector_store_backend=VectorStoreBackend.JSONL,
+            )
         )
         state = ConversationState()
         turns = [

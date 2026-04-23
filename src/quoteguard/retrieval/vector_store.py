@@ -158,7 +158,12 @@ def get_vector_store(
     if selected == VectorStoreBackend.CHROMA:
         try:
             chroma_dir = store_path if store_path.suffix == "" else store_path.parent
-            return ChromaVectorStore(chroma_dir, embedder=embedder)
+            raw_name = store_path.stem if store_path.suffix else store_path.name
+            collection_name = "".join(
+                character if character.isalnum() or character in {"_", "-"} else "_"
+                for character in raw_name
+            ) or "quoteguard_chunks"
+            return ChromaVectorStore(chroma_dir, embedder=embedder, collection_name=collection_name)
         except ImportError:
             return VectorStore(store_path=store_path, embedder=embedder)  # type: ignore[arg-type]
     return VectorStore(store_path=store_path, embedder=embedder)  # type: ignore[arg-type]
