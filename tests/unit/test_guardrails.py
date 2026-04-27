@@ -2,9 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from quoteguard.guardrails.input import InputGuardrail
-from quoteguard.guardrails.output import OutputGuardrail
-from quoteguard.guardrails.retrieval import RetrievalGuardrail
+from quoteguard.guardrails.engine import InputGuardrail, OutputGuardrail, RetrievalGuardrail
 
 
 class GuardrailTest(unittest.TestCase):

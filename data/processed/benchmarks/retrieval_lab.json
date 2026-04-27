@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-23T06:57:47.163011+00:00",
+  "generated_at": "2026-04-23T07:25:17.414105+00:00",
   "raw_dir": "/Users/williamcatt/Documents/Projects/QuoteGuard/data/raw_pdfs",
   "product_type": "home_contents",
   "questions": [
@@ -10,11 +10,17 @@
     "pymupdf4llm",
     "docling"
   ],
-  "embedder_backend": "hashing",
-  "vector_store_backend": "jsonl",
+  "embedder_backends": [
+    "hashing",
+    "sentence_transformers"
+  ],
+  "vector_store_backends": [
+    "jsonl",
+    "chroma"
+  ],
   "runs": [
     {
-      "started_at": "2026-04-23T06:57:47.163122+00:00",
+      "started_at": "2026-04-23T07:25:17.414233+00:00",
       "parser_backend_requested": "pymupdf4llm",
       "parser_backend_used": [
         "pymupdf4llm"
@@ -34,25 +40,25 @@
         "sections_total": 2139,
         "words_total": 222727,
         "chunks_total": 2170,
-        "avg_parse_ms_per_document": 10194.88,
-        "parse_ms_total": 50974.38,
-        "chunk_ms_total": 23.62,
-        "index_ms_total": 182.47,
-        "retrieval_ms_total": 243.94,
-        "avg_retrieval_ms": 30.63,
-        "p95_retrieval_ms": 33.58,
+        "avg_parse_ms_per_document": 8736.25,
+        "parse_ms_total": 43681.24,
+        "chunk_ms_total": 15.98,
+        "index_ms_total": 106.95,
+        "retrieval_ms_total": 142.58,
+        "avg_retrieval_ms": 17.73,
+        "p95_retrieval_ms": 17.87,
         "avg_words_per_section": 104.13,
         "avg_chunk_tokens": 103.35,
         "max_chunk_tokens": 500,
         "chunk_expansion_ratio": 1.007,
-        "words_per_second": 4369.39
+        "words_per_second": 5098.92
       },
       "documents": [
         {
           "source_pdf": "Allianz_Business_Commercial_Motor.pdf",
           "parser_backend": "pymupdf4llm",
           "status": "ok",
-          "parse_ms": 3822.83,
+          "parse_ms": 2951.8,
           "sections": 160,
           "words": 13713,
           "avg_words_per_section": 85.71,
@@ -119,7 +125,7 @@
           "source_pdf": "Allianz_Business_Farm_Pack.pdf",
           "parser_backend": "pymupdf4llm",
           "status": "ok",
-          "parse_ms": 12937.13,
+          "parse_ms": 11422.76,
           "sections": 489,
           "words": 58579,
           "avg_words_per_section": 119.79,
@@ -184,7 +190,7 @@
           "source_pdf": "Allianz_Business_Office_Pack.pdf",
           "parser_backend": "pymupdf4llm",
           "status": "ok",
-          "parse_ms": 13457.03,
+          "parse_ms": 11667.59,
           "sections": 595,
           "words": 60850,
           "avg_words_per_section": 102.27,
@@ -250,7 +256,7 @@
           "source_pdf": "Allianz_Business_PDS.pdf",
           "parser_backend": "pymupdf4llm",
           "status": "ok",
-          "parse_ms": 14135.89,
+          "parse_ms": 12163.21,
           "sections": 611,
           "words": 62272,
           "avg_words_per_section": 101.92,
@@ -316,7 +322,7 @@
           "source_pdf": "Allianz_Business_Trades_and_Services.pdf",
           "parser_backend": "pymupdf4llm",
           "status": "ok",
-          "parse_ms": 6621.51,
+          "parse_ms": 5475.89,
           "sections": 284,
           "words": 27313,
           "avg_words_per_section": 96.17,
@@ -383,7 +389,995 @@
       "queries": [
         {
           "question": "Does the policy cover theft?",
-          "latency_ms": 27.68,
+          "latency_ms": 17.87,
+          "top_hit_source_pdf": "Allianz_Business_PDS.pdf",
+          "top_hit_score": 0.2808,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.2808,
+              "source_pdf": "Allianz_Business_PDS.pdf",
+              "page_number": 7,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "rank": 2,
+              "score": 0.2664,
+              "source_pdf": "Allianz_Business_Office_Pack.pdf",
+              "page_number": 6,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "rank": 3,
+              "score": 0.2654,
+              "source_pdf": "Allianz_Business_Trades_and_Services.pdf",
+              "page_number": 4,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "rank": 4,
+              "score": 0.2649,
+              "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+              "page_number": 14,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "\u201cPolicy\u201d means this PDS, Your policy Schedule, reference to other relevant policy included in this PDS and any other documents We agree with You that form part of the terms and conditions of Our contract with You (suc..."
+            },
+            {
+              "rank": 5,
+              "score": 0.2159,
+              "source_pdf": "Allianz_Business_PDS.pdf",
+              "page_number": 67,
+              "section_path": [
+                "Document",
+                "Additional benefi ts applicable to this Section"
+              ],
+              "preview": "1. Theft of other equipment Any amount payable under this additional benefi t shall apply in addition to the Sum Insured. We will cover You for theft or attempted theft of any Property Insured not belonging to You but..."
+            }
+          ]
+        },
+        {
+          "question": "Are jewellery items limited?",
+          "latency_ms": 17.59,
+          "top_hit_source_pdf": "Allianz_Business_PDS.pdf",
+          "top_hit_score": 0.2159,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.2159,
+              "source_pdf": "Allianz_Business_PDS.pdf",
+              "page_number": 30,
+              "section_path": [
+                "Document",
+                "to this Section"
+              ],
+              "preview": "1. We will not cover You for Damage insurable under any other Section or Sections of the Policy. This exclusion does not apply to any Damage which would only be insurable under any other Section or Sections because it..."
+            },
+            {
+              "rank": 2,
+              "score": 0.2149,
+              "source_pdf": "Allianz_Business_Office_Pack.pdf",
+              "page_number": 30,
+              "section_path": [
+                "Document",
+                "Specifi c exclusions applicable to this Section"
+              ],
+              "preview": "1. We will not cover You for Damage insurable under any other Section or Sections of the Policy. This exclusion does not apply to any Damage which would only be insurable under any other Section or Sections because it..."
+            },
+            {
+              "rank": 3,
+              "score": 0.1664,
+              "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+              "page_number": 26,
+              "section_path": [
+                "Document",
+                "Contents with specifi ed limits of cover"
+              ],
+              "preview": "15. the following special items: - a) jewellery, including uncut stones, watches or an item containing gold and/or silver; We will not pay more than $10,000 for any one item, pair, Set or Collection unless they are se..."
+            },
+            {
+              "rank": 4,
+              "score": 0.1661,
+              "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+              "page_number": 46,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "\u201cFarm Contents in the Open Air\u201d means contents that would be considered Farm Contents but for it being: - in the open air; - located anywhere on the Situation; and - specifi ed on Your Schedule. \u201cFarm Infrastructure a..."
+            },
+            {
+              "rank": 5,
+              "score": 0.1652,
+              "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+              "page_number": 45,
+              "section_path": [
+                "Document",
+                "Defi nitions applicable to Section Two"
+              ],
+              "preview": "Some of the words in Section Two have special meanings. The following words and their meanings wherever they appear in Section Two are defi ned as below and will apply to the cover under this Section. \u201cAccidental Dama..."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "started_at": "2026-04-23T07:26:01.505566+00:00",
+      "parser_backend_requested": "pymupdf4llm",
+      "parser_backend_used": [
+        "pymupdf4llm"
+      ],
+      "embedder_backend": "hashing",
+      "vector_store_backend": "chroma",
+      "chunker": {
+        "max_tokens": 500,
+        "overlap_tokens": 50
+      },
+      "status": "ok",
+      "error": null,
+      "summary": {
+        "documents_total": 5,
+        "documents_parsed": 5,
+        "documents_failed": 0,
+        "sections_total": 2139,
+        "words_total": 222727,
+        "chunks_total": 2170,
+        "avg_parse_ms_per_document": 8820.26,
+        "parse_ms_total": 44101.28,
+        "chunk_ms_total": 14.6,
+        "index_ms_total": 1047.51,
+        "retrieval_ms_total": 1081.37,
+        "avg_retrieval_ms": 16.84,
+        "p95_retrieval_ms": 18.55,
+        "avg_words_per_section": 104.13,
+        "avg_chunk_tokens": 103.35,
+        "max_chunk_tokens": 500,
+        "chunk_expansion_ratio": 1.007,
+        "words_per_second": 5050.35
+      },
+      "documents": [
+        {
+          "source_pdf": "Allianz_Business_Commercial_Motor.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 3001.19,
+          "sections": 160,
+          "words": 13713,
+          "avg_words_per_section": 85.71,
+          "chunks": 162,
+          "avg_chunk_tokens": 85.27,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [154 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Commercial Motor Vehicle Insurance",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Commercial Motor Vehicle Insurance"
+              ],
+              "preview": "Product Disclosure Statement (PDS) and Policy Document **==> picture [511 x 555] intentionally omitted <==**"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "Allianz Australia Insurance Limited ABN 15 000 122 850 AFS Licence No. 234708 is the insurer of the Policy and is one of Australia\u2019s largest general insurers. We utilise years of local expertise, combined with global ..."
+            },
+            {
+              "heading": "In this PDS:",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "In this PDS:"
+              ],
+              "preview": "\u201cWe\u201d, \u201cOur\u201d, or \u201cUs\u201d refers to the insurer Allianz Australia Insurance Limited, ABN 15 000 122 850, AFS Licence No. 234708. Telephone: 13 2664 and website: allianz.com.au Preparation date: 10/09/2025."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 3,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "|Table of contents|||| |---|---|---|---| ||page||page| |Introduction||Section 2 \u2013 Third Party Property Damage|| |About this insurance|2|Cover for damage to other people\u2019s|| |Summary of the available covers|2|property ..."
+            },
+            {
+              "heading": "Introduction",
+              "page_number": 4,
+              "section_path": [
+                "Document",
+                "Introduction"
+              ],
+              "preview": "Welcome and thank You for choosing Our Commercial Motor Vehicle Insurance Policy."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 11480.18,
+          "sections": 489,
+          "words": 58579,
+          "avg_words_per_section": 119.79,
+          "chunks": 499,
+          "avg_chunk_tokens": 118.39,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [39 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Farm Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Farm Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) and Policy Document **==> picture [510 x 556] intentionally omitted <==**"
+            },
+            {
+              "heading": "Document",
+              "page_number": 2,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "Preparation Date: 04/08/2022."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 3,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "|Table of contents|||| |---|---|---|---| ||Page||Page| |Introduction||How We will settle Your Buildings claim|22| |About Allianz|4|If You have Contents cover|23| |Summary of the available covers|4|The cover|23| |Under..."
+            },
+            {
+              "heading": "Document",
+              "page_number": 4,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "||Page| |---|---| |Section Three \u2013 Public and Products Liability|| |The cover|55| |Def nitions applicable to Section Three|55| |Limit of Indemnity applicable to Section Three|57| |Other benef ts We will pay under Sect..."
+            },
+            {
+              "heading": "Page",
+              "page_number": 5,
+              "section_path": [
+                "Document",
+                "Page"
+              ],
+              "preview": "|Section Nine \u2013 Miscellaneous|| |---|---| |Part A \u2013 Working Dogs|89| |The cover|89| |Def nitions applicable to Part A of Section Nine|89| |How We will settle Your Working Dogs claim|90| |When We will not pay a claim u..."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Office_Pack.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 11695.41,
+          "sections": 595,
+          "words": 60850,
+          "avg_words_per_section": 102.27,
+          "chunks": 600,
+          "avg_chunk_tokens": 101.83,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [39 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Untitled",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Untitled"
+              ],
+              "preview": "Product Disclosure Statement (PDS) **==> picture [510 x 554] intentionally omitted <==**"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "General Information",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "General Information"
+              ],
+              "preview": "The General Information set out below is provided for your information only. It does not form part of the insurance contract with you, and is not part of the policy. Nothing contained in the General Information impose..."
+            },
+            {
+              "heading": "Claims made",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "Claims made"
+              ],
+              "preview": "The Management Liability and Professional Indemnity Sections of the policy operates on a \u201cclaims made and notifi ed\u201d basis. This means that the section covers you for claims as defi ned in the Management Liability or ..."
+            },
+            {
+              "heading": "Document",
+              "page_number": 3,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "This page has been left blank intentionally. 1"
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_PDS.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 12533.53,
+          "sections": 611,
+          "words": 62272,
+          "avg_words_per_section": 101.92,
+          "chunks": 621,
+          "avg_chunk_tokens": 101.08,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [39 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Business Insurance Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Business Insurance Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) **==> picture [511 x 555] intentionally omitted <==**"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "General Information",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "General Information"
+              ],
+              "preview": "The General Information set out below is provided for your information only. It does not form part of the insurance contract with you, and is not part of the policy. Nothing contained in the General Information impose..."
+            },
+            {
+              "heading": "Claims made",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "Claims made"
+              ],
+              "preview": "The Management Liability Section of the policy operates on a \u201cclaims made and notified\u201d basis. This means that the section covers you for claims as defined in the Management Liability Section made against you and noti..."
+            },
+            {
+              "heading": "Document",
+              "page_number": 3,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "This page has been left blank intentionally. 1"
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Trades_and_Services.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 5390.97,
+          "sections": 284,
+          "words": 27313,
+          "avg_words_per_section": 96.17,
+          "chunks": 288,
+          "avg_chunk_tokens": 95.53,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [39 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Trades and Services Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Trades and Services Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) **==> picture [508 x 554] intentionally omitted <==**"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 3,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "|Table of contents|||| |---|---|---|---| ||page||page| |Introduction|2|Commercial Motor Section|31| |General def nitions|9|Def nitions applicable to this Section|31| |General exclusions|11|Part A \u2013 Loss or Damage to Y..."
+            },
+            {
+              "heading": "Summary of the available covers",
+              "page_number": 4,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "heading": "About this insurance",
+              "page_number": 5,
+              "section_path": [
+                "Document",
+                "About this insurance"
+              ],
+              "preview": "This is an important document. You should read it carefully before making a decision to purchase this insurance. It will help You to: - decide whether this insurance will meet Your needs; and - compare it with other p..."
+            }
+          ]
+        }
+      ],
+      "queries": [
+        {
+          "question": "Does the policy cover theft?",
+          "latency_ms": 18.55,
+          "top_hit_source_pdf": "Allianz_Business_PDS.pdf",
+          "top_hit_score": 0.2813,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.2813,
+              "source_pdf": "Allianz_Business_PDS.pdf",
+              "page_number": 7,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "rank": 2,
+              "score": 0.2664,
+              "source_pdf": "Allianz_Business_Office_Pack.pdf",
+              "page_number": 6,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "rank": 3,
+              "score": 0.2654,
+              "source_pdf": "Allianz_Business_Trades_and_Services.pdf",
+              "page_number": 4,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "rank": 4,
+              "score": 0.2649,
+              "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+              "page_number": 14,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "\u201cPolicy\u201d means this PDS, Your policy Schedule, reference to other relevant policy included in this PDS and any other documents We agree with You that form part of the terms and conditions of Our contract with You (suc..."
+            },
+            {
+              "rank": 5,
+              "score": 0.2159,
+              "source_pdf": "Allianz_Business_PDS.pdf",
+              "page_number": 67,
+              "section_path": [
+                "Document",
+                "Additional benefi ts applicable to this Section"
+              ],
+              "preview": "1. Theft of other equipment Any amount payable under this additional benefi t shall apply in addition to the Sum Insured. We will cover You for theft or attempted theft of any Property Insured not belonging to You but..."
+            }
+          ]
+        },
+        {
+          "question": "Are jewellery items limited?",
+          "latency_ms": 15.12,
+          "top_hit_source_pdf": "Allianz_Business_PDS.pdf",
+          "top_hit_score": 0.2159,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.2159,
+              "source_pdf": "Allianz_Business_PDS.pdf",
+              "page_number": 30,
+              "section_path": [
+                "Document",
+                "to this Section"
+              ],
+              "preview": "1. We will not cover You for Damage insurable under any other Section or Sections of the Policy. This exclusion does not apply to any Damage which would only be insurable under any other Section or Sections because it..."
+            },
+            {
+              "rank": 2,
+              "score": 0.2149,
+              "source_pdf": "Allianz_Business_Office_Pack.pdf",
+              "page_number": 30,
+              "section_path": [
+                "Document",
+                "Specifi c exclusions applicable to this Section"
+              ],
+              "preview": "1. We will not cover You for Damage insurable under any other Section or Sections of the Policy. This exclusion does not apply to any Damage which would only be insurable under any other Section or Sections because it..."
+            },
+            {
+              "rank": 3,
+              "score": 0.1664,
+              "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+              "page_number": 26,
+              "section_path": [
+                "Document",
+                "Contents with specifi ed limits of cover"
+              ],
+              "preview": "15. the following special items: - a) jewellery, including uncut stones, watches or an item containing gold and/or silver; We will not pay more than $10,000 for any one item, pair, Set or Collection unless they are se..."
+            },
+            {
+              "rank": 4,
+              "score": 0.1661,
+              "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+              "page_number": 46,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "\u201cFarm Contents in the Open Air\u201d means contents that would be considered Farm Contents but for it being: - in the open air; - located anywhere on the Situation; and - specifi ed on Your Schedule. \u201cFarm Infrastructure a..."
+            },
+            {
+              "rank": 5,
+              "score": 0.1652,
+              "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+              "page_number": 45,
+              "section_path": [
+                "Document",
+                "Defi nitions applicable to Section Two"
+              ],
+              "preview": "Some of the words in Section Two have special meanings. The following words and their meanings wherever they appear in Section Two are defi ned as below and will apply to the cover under this Section. \u201cAccidental Dama..."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "started_at": "2026-04-23T07:26:46.736733+00:00",
+      "parser_backend_requested": "pymupdf4llm",
+      "parser_backend_used": [
+        "pymupdf4llm"
+      ],
+      "embedder_backend": "sentence_transformers",
+      "vector_store_backend": "jsonl",
+      "chunker": {
+        "max_tokens": 500,
+        "overlap_tokens": 50
+      },
+      "status": "ok",
+      "error": null,
+      "summary": {
+        "documents_total": 5,
+        "documents_parsed": 5,
+        "documents_failed": 0,
+        "sections_total": 2139,
+        "words_total": 222727,
+        "chunks_total": 2170,
+        "avg_parse_ms_per_document": 8756.88,
+        "parse_ms_total": 43784.38,
+        "chunk_ms_total": 13.82,
+        "index_ms_total": 25874.42,
+        "retrieval_ms_total": 27007.01,
+        "avg_retrieval_ms": 566.21,
+        "p95_retrieval_ms": 775.34,
+        "avg_words_per_section": 104.13,
+        "avg_chunk_tokens": 103.35,
+        "max_chunk_tokens": 500,
+        "chunk_expansion_ratio": 1.007,
+        "words_per_second": 5086.9
+      },
+      "documents": [
+        {
+          "source_pdf": "Allianz_Business_Commercial_Motor.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 2941.38,
+          "sections": 160,
+          "words": 13713,
+          "avg_words_per_section": 85.71,
+          "chunks": 162,
+          "avg_chunk_tokens": 85.27,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [154 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Commercial Motor Vehicle Insurance",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Commercial Motor Vehicle Insurance"
+              ],
+              "preview": "Product Disclosure Statement (PDS) and Policy Document **==> picture [511 x 555] intentionally omitted <==**"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "Allianz Australia Insurance Limited ABN 15 000 122 850 AFS Licence No. 234708 is the insurer of the Policy and is one of Australia\u2019s largest general insurers. We utilise years of local expertise, combined with global ..."
+            },
+            {
+              "heading": "In this PDS:",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "In this PDS:"
+              ],
+              "preview": "\u201cWe\u201d, \u201cOur\u201d, or \u201cUs\u201d refers to the insurer Allianz Australia Insurance Limited, ABN 15 000 122 850, AFS Licence No. 234708. Telephone: 13 2664 and website: allianz.com.au Preparation date: 10/09/2025."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 3,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "|Table of contents|||| |---|---|---|---| ||page||page| |Introduction||Section 2 \u2013 Third Party Property Damage|| |About this insurance|2|Cover for damage to other people\u2019s|| |Summary of the available covers|2|property ..."
+            },
+            {
+              "heading": "Introduction",
+              "page_number": 4,
+              "section_path": [
+                "Document",
+                "Introduction"
+              ],
+              "preview": "Welcome and thank You for choosing Our Commercial Motor Vehicle Insurance Policy."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 11602.51,
+          "sections": 489,
+          "words": 58579,
+          "avg_words_per_section": 119.79,
+          "chunks": 499,
+          "avg_chunk_tokens": 118.39,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [39 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Farm Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Farm Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) and Policy Document **==> picture [510 x 556] intentionally omitted <==**"
+            },
+            {
+              "heading": "Document",
+              "page_number": 2,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "Preparation Date: 04/08/2022."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 3,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "|Table of contents|||| |---|---|---|---| ||Page||Page| |Introduction||How We will settle Your Buildings claim|22| |About Allianz|4|If You have Contents cover|23| |Summary of the available covers|4|The cover|23| |Under..."
+            },
+            {
+              "heading": "Document",
+              "page_number": 4,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "||Page| |---|---| |Section Three \u2013 Public and Products Liability|| |The cover|55| |Def nitions applicable to Section Three|55| |Limit of Indemnity applicable to Section Three|57| |Other benef ts We will pay under Sect..."
+            },
+            {
+              "heading": "Page",
+              "page_number": 5,
+              "section_path": [
+                "Document",
+                "Page"
+              ],
+              "preview": "|Section Nine \u2013 Miscellaneous|| |---|---| |Part A \u2013 Working Dogs|89| |The cover|89| |Def nitions applicable to Part A of Section Nine|89| |How We will settle Your Working Dogs claim|90| |When We will not pay a claim u..."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Office_Pack.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 11464.5,
+          "sections": 595,
+          "words": 60850,
+          "avg_words_per_section": 102.27,
+          "chunks": 600,
+          "avg_chunk_tokens": 101.83,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [39 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Untitled",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Untitled"
+              ],
+              "preview": "Product Disclosure Statement (PDS) **==> picture [510 x 554] intentionally omitted <==**"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "General Information",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "General Information"
+              ],
+              "preview": "The General Information set out below is provided for your information only. It does not form part of the insurance contract with you, and is not part of the policy. Nothing contained in the General Information impose..."
+            },
+            {
+              "heading": "Claims made",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "Claims made"
+              ],
+              "preview": "The Management Liability and Professional Indemnity Sections of the policy operates on a \u201cclaims made and notifi ed\u201d basis. This means that the section covers you for claims as defi ned in the Management Liability or ..."
+            },
+            {
+              "heading": "Document",
+              "page_number": 3,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "This page has been left blank intentionally. 1"
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_PDS.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 12141.94,
+          "sections": 611,
+          "words": 62272,
+          "avg_words_per_section": 101.92,
+          "chunks": 621,
+          "avg_chunk_tokens": 101.08,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [39 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Business Insurance Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Business Insurance Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) **==> picture [511 x 555] intentionally omitted <==**"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "General Information",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "General Information"
+              ],
+              "preview": "The General Information set out below is provided for your information only. It does not form part of the insurance contract with you, and is not part of the policy. Nothing contained in the General Information impose..."
+            },
+            {
+              "heading": "Claims made",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "Claims made"
+              ],
+              "preview": "The Management Liability Section of the policy operates on a \u201cclaims made and notified\u201d basis. This means that the section covers you for claims as defined in the Management Liability Section made against you and noti..."
+            },
+            {
+              "heading": "Document",
+              "page_number": 3,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "This page has been left blank intentionally. 1"
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Trades_and_Services.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 5634.05,
+          "sections": 284,
+          "words": 27313,
+          "avg_words_per_section": 96.17,
+          "chunks": 288,
+          "avg_chunk_tokens": 95.53,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [39 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Trades and Services Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Trades and Services Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) **==> picture [508 x 554] intentionally omitted <==**"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 3,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "|Table of contents|||| |---|---|---|---| ||page||page| |Introduction|2|Commercial Motor Section|31| |General def nitions|9|Def nitions applicable to this Section|31| |General exclusions|11|Part A \u2013 Loss or Damage to Y..."
+            },
+            {
+              "heading": "Summary of the available covers",
+              "page_number": 4,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "heading": "About this insurance",
+              "page_number": 5,
+              "section_path": [
+                "Document",
+                "About this insurance"
+              ],
+              "preview": "This is an important document. You should read it carefully before making a decision to purchase this insurance. It will help You to: - decide whether this insurance will meet Your needs; and - compare it with other p..."
+            }
+          ]
+        }
+      ],
+      "queries": [
+        {
+          "question": "Does the policy cover theft?",
+          "latency_ms": 775.34,
           "top_hit_source_pdf": "Allianz_Business_Office_Pack.pdf",
           "top_hit_score": 0.2664,
           "results": [
@@ -432,7 +1426,7 @@
             },
             {
               "rank": 5,
-              "score": 0.2159,
+              "score": 0.2317,
               "source_pdf": "Allianz_Business_PDS.pdf",
               "page_number": 67,
               "section_path": [
@@ -445,13 +1439,13 @@
         },
         {
           "question": "Are jewellery items limited?",
-          "latency_ms": 33.58,
+          "latency_ms": 357.08,
           "top_hit_source_pdf": "Allianz_Business_PDS.pdf",
-          "top_hit_score": 0.2159,
+          "top_hit_score": 0.2313,
           "results": [
             {
               "rank": 1,
-              "score": 0.2159,
+              "score": 0.2313,
               "source_pdf": "Allianz_Business_PDS.pdf",
               "page_number": 30,
               "section_path": [
@@ -462,7 +1456,7 @@
             },
             {
               "rank": 2,
-              "score": 0.2149,
+              "score": 0.2296,
               "source_pdf": "Allianz_Business_Office_Pack.pdf",
               "page_number": 30,
               "section_path": [
@@ -473,7 +1467,7 @@
             },
             {
               "rank": 3,
-              "score": 0.1664,
+              "score": 0.1823,
               "source_pdf": "Allianz_Business_Farm_Pack.pdf",
               "page_number": 26,
               "section_path": [
@@ -484,31 +1478,401 @@
             },
             {
               "rank": 4,
-              "score": 0.1661,
-              "source_pdf": "Allianz_Business_Farm_Pack.pdf",
-              "page_number": 40,
+              "score": 0.1664,
+              "source_pdf": "Allianz_Business_PDS.pdf",
+              "page_number": 67,
               "section_path": [
                 "Document",
-                "What are unspecifi ed Personal Eff ects"
+                "Specific exclusions applicable to this Section"
               ],
-              "preview": "We will cover You in respect of the following unspecifi ed personal eff ects: - a) travellers\u2019 suitcases and bags, handbags, briefcases, wallets and purses, but not the contents of these items (apart from the property..."
+              "preview": "We will not pay for 1. a. motor vehicles, caravans, trailers, motorcycles, watercraft, Hovercraft, Aircraft or aerial devices or the accessories (whether fitted or otherwise) of or to any of these; - b. i. Money - ii...."
             },
             {
               "rank": 5,
               "score": 0.1661,
-              "source_pdf": "Allianz_Business_Farm_Pack.pdf",
-              "page_number": 46,
+              "source_pdf": "Allianz_Business_Office_Pack.pdf",
+              "page_number": 58,
               "section_path": [
-                "Document"
+                "Document",
+                "Specifi c exclusions applicable to this Section"
               ],
-              "preview": "\u201cFarm Contents in the Open Air\u201d means contents that would be considered Farm Contents but for it being: - in the open air; - located anywhere on the Situation; and - specifi ed on Your Schedule. \u201cFarm Infrastructure a..."
+              "preview": "We will not pay for: 1. a. motor vehicles, caravans, trailers, motorcycles, watercraft, Hovercraft, Aircraft or aerial devices or the accessories (whether fi tted or otherwise) of or to any of these; - b. i. Money; - ..."
             }
           ]
         }
       ]
     },
     {
-      "started_at": "2026-04-23T06:58:38.684417+00:00",
+      "started_at": "2026-04-23T07:27:57.577665+00:00",
+      "parser_backend_requested": "pymupdf4llm",
+      "parser_backend_used": [
+        "pymupdf4llm"
+      ],
+      "embedder_backend": "sentence_transformers",
+      "vector_store_backend": "chroma",
+      "chunker": {
+        "max_tokens": 500,
+        "overlap_tokens": 50
+      },
+      "status": "error",
+      "error": "InternalError: Database error: error returned from database: (code: 1032) attempt to write a readonly database",
+      "summary": {
+        "documents_total": 5,
+        "documents_parsed": 5,
+        "documents_failed": 0,
+        "sections_total": 2139,
+        "words_total": 222727,
+        "chunks_total": 2170,
+        "avg_parse_ms_per_document": 9471.36,
+        "parse_ms_total": 47356.78,
+        "chunk_ms_total": 14.29,
+        "index_ms_total": 0.0,
+        "retrieval_ms_total": 5600.92,
+        "avg_retrieval_ms": 0.0,
+        "p95_retrieval_ms": 0.0,
+        "avg_words_per_section": 104.13,
+        "avg_chunk_tokens": 103.35,
+        "max_chunk_tokens": 500,
+        "chunk_expansion_ratio": 1.007,
+        "words_per_second": 4703.17
+      },
+      "documents": [
+        {
+          "source_pdf": "Allianz_Business_Commercial_Motor.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 3351.77,
+          "sections": 160,
+          "words": 13713,
+          "avg_words_per_section": 85.71,
+          "chunks": 162,
+          "avg_chunk_tokens": 85.27,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [154 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Commercial Motor Vehicle Insurance",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Commercial Motor Vehicle Insurance"
+              ],
+              "preview": "Product Disclosure Statement (PDS) and Policy Document **==> picture [511 x 555] intentionally omitted <==**"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "Allianz Australia Insurance Limited ABN 15 000 122 850 AFS Licence No. 234708 is the insurer of the Policy and is one of Australia\u2019s largest general insurers. We utilise years of local expertise, combined with global ..."
+            },
+            {
+              "heading": "In this PDS:",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "In this PDS:"
+              ],
+              "preview": "\u201cWe\u201d, \u201cOur\u201d, or \u201cUs\u201d refers to the insurer Allianz Australia Insurance Limited, ABN 15 000 122 850, AFS Licence No. 234708. Telephone: 13 2664 and website: allianz.com.au Preparation date: 10/09/2025."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 3,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "|Table of contents|||| |---|---|---|---| ||page||page| |Introduction||Section 2 \u2013 Third Party Property Damage|| |About this insurance|2|Cover for damage to other people\u2019s|| |Summary of the available covers|2|property ..."
+            },
+            {
+              "heading": "Introduction",
+              "page_number": 4,
+              "section_path": [
+                "Document",
+                "Introduction"
+              ],
+              "preview": "Welcome and thank You for choosing Our Commercial Motor Vehicle Insurance Policy."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 13010.89,
+          "sections": 489,
+          "words": 58579,
+          "avg_words_per_section": 119.79,
+          "chunks": 499,
+          "avg_chunk_tokens": 118.39,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [39 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Farm Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Farm Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) and Policy Document **==> picture [510 x 556] intentionally omitted <==**"
+            },
+            {
+              "heading": "Document",
+              "page_number": 2,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "Preparation Date: 04/08/2022."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 3,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "|Table of contents|||| |---|---|---|---| ||Page||Page| |Introduction||How We will settle Your Buildings claim|22| |About Allianz|4|If You have Contents cover|23| |Summary of the available covers|4|The cover|23| |Under..."
+            },
+            {
+              "heading": "Document",
+              "page_number": 4,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "||Page| |---|---| |Section Three \u2013 Public and Products Liability|| |The cover|55| |Def nitions applicable to Section Three|55| |Limit of Indemnity applicable to Section Three|57| |Other benef ts We will pay under Sect..."
+            },
+            {
+              "heading": "Page",
+              "page_number": 5,
+              "section_path": [
+                "Document",
+                "Page"
+              ],
+              "preview": "|Section Nine \u2013 Miscellaneous|| |---|---| |Part A \u2013 Working Dogs|89| |The cover|89| |Def nitions applicable to Part A of Section Nine|89| |How We will settle Your Working Dogs claim|90| |When We will not pay a claim u..."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Office_Pack.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 12701.3,
+          "sections": 595,
+          "words": 60850,
+          "avg_words_per_section": 102.27,
+          "chunks": 600,
+          "avg_chunk_tokens": 101.83,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [39 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Untitled",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Untitled"
+              ],
+              "preview": "Product Disclosure Statement (PDS) **==> picture [510 x 554] intentionally omitted <==**"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "General Information",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "General Information"
+              ],
+              "preview": "The General Information set out below is provided for your information only. It does not form part of the insurance contract with you, and is not part of the policy. Nothing contained in the General Information impose..."
+            },
+            {
+              "heading": "Claims made",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "Claims made"
+              ],
+              "preview": "The Management Liability and Professional Indemnity Sections of the policy operates on a \u201cclaims made and notifi ed\u201d basis. This means that the section covers you for claims as defi ned in the Management Liability or ..."
+            },
+            {
+              "heading": "Document",
+              "page_number": 3,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "This page has been left blank intentionally. 1"
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_PDS.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 12878.66,
+          "sections": 611,
+          "words": 62272,
+          "avg_words_per_section": 101.92,
+          "chunks": 621,
+          "avg_chunk_tokens": 101.08,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [39 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Business Insurance Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Business Insurance Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) **==> picture [511 x 555] intentionally omitted <==**"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "General Information",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "General Information"
+              ],
+              "preview": "The General Information set out below is provided for your information only. It does not form part of the insurance contract with you, and is not part of the policy. Nothing contained in the General Information impose..."
+            },
+            {
+              "heading": "Claims made",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "Claims made"
+              ],
+              "preview": "The Management Liability Section of the policy operates on a \u201cclaims made and notified\u201d basis. This means that the section covers you for claims as defined in the Management Liability Section made against you and noti..."
+            },
+            {
+              "heading": "Document",
+              "page_number": 3,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "This page has been left blank intentionally. 1"
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Trades_and_Services.pdf",
+          "parser_backend": "pymupdf4llm",
+          "status": "ok",
+          "parse_ms": 5414.17,
+          "sections": 284,
+          "words": 27313,
+          "avg_words_per_section": 96.17,
+          "chunks": 288,
+          "avg_chunk_tokens": 95.53,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "**==> picture [39 x 39] intentionally omitted <==**"
+            },
+            {
+              "heading": "Trades and Services Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Trades and Services Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) **==> picture [508 x 554] intentionally omitted <==**"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 2,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 3,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "|Table of contents|||| |---|---|---|---| ||page||page| |Introduction|2|Commercial Motor Section|31| |General def nitions|9|Def nitions applicable to this Section|31| |General exclusions|11|Part A \u2013 Loss or Damage to Y..."
+            },
+            {
+              "heading": "Summary of the available covers",
+              "page_number": 4,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "heading": "About this insurance",
+              "page_number": 5,
+              "section_path": [
+                "Document",
+                "About this insurance"
+              ],
+              "preview": "This is an important document. You should read it carefully before making a decision to purchase this insurance. It will help You to: - decide whether this insurance will meet Your needs; and - compare it with other p..."
+            }
+          ]
+        }
+      ],
+      "queries": []
+    },
+    {
+      "started_at": "2026-04-23T07:28:50.591132+00:00",
       "parser_backend_requested": "docling",
       "parser_backend_used": [
         "docling"
@@ -528,25 +1892,25 @@
         "sections_total": 2017,
         "words_total": 225202,
         "chunks_total": 2081,
-        "avg_parse_ms_per_document": 24117.71,
-        "parse_ms_total": 120588.57,
-        "chunk_ms_total": 13.7,
-        "index_ms_total": 107.99,
-        "retrieval_ms_total": 147.12,
-        "avg_retrieval_ms": 19.49,
-        "p95_retrieval_ms": 20.29,
+        "avg_parse_ms_per_document": 20957.14,
+        "parse_ms_total": 104785.68,
+        "chunk_ms_total": 13.15,
+        "index_ms_total": 96.55,
+        "retrieval_ms_total": 136.5,
+        "avg_retrieval_ms": 19.89,
+        "p95_retrieval_ms": 21.08,
         "avg_words_per_section": 111.65,
         "avg_chunk_tokens": 109.76,
         "max_chunk_tokens": 500,
         "chunk_expansion_ratio": 1.014,
-        "words_per_second": 1867.52
+        "words_per_second": 2149.17
       },
       "documents": [
         {
           "source_pdf": "Allianz_Business_Commercial_Motor.pdf",
           "parser_backend": "docling",
           "status": "ok",
-          "parse_ms": 22407.33,
+          "parse_ms": 10604.09,
           "sections": 153,
           "words": 14173,
           "avg_words_per_section": 92.63,
@@ -613,7 +1977,7 @@
           "source_pdf": "Allianz_Business_Farm_Pack.pdf",
           "parser_backend": "docling",
           "status": "ok",
-          "parse_ms": 29016.03,
+          "parse_ms": 26023.1,
           "sections": 449,
           "words": 59496,
           "avg_words_per_section": 132.51,
@@ -680,7 +2044,7 @@
           "source_pdf": "Allianz_Business_Office_Pack.pdf",
           "parser_backend": "docling",
           "status": "ok",
-          "parse_ms": 27713.25,
+          "parse_ms": 26559.14,
           "sections": 556,
           "words": 61270,
           "avg_words_per_section": 110.2,
@@ -747,7 +2111,7 @@
           "source_pdf": "Allianz_Business_PDS.pdf",
           "parser_backend": "docling",
           "status": "ok",
-          "parse_ms": 28275.78,
+          "parse_ms": 28335.0,
           "sections": 587,
           "words": 62872,
           "avg_words_per_section": 107.11,
@@ -814,7 +2178,7 @@
           "source_pdf": "Allianz_Business_Trades_and_Services.pdf",
           "parser_backend": "docling",
           "status": "ok",
-          "parse_ms": 13176.18,
+          "parse_ms": 13264.35,
           "sections": 272,
           "words": 27391,
           "avg_words_per_section": 100.7,
@@ -881,7 +2245,7 @@
       "queries": [
         {
           "question": "Does the policy cover theft?",
-          "latency_ms": 20.29,
+          "latency_ms": 18.7,
           "top_hit_source_pdf": "Allianz_Business_Office_Pack.pdf",
           "top_hit_score": 0.2664,
           "results": [
@@ -920,31 +2284,31 @@
             },
             {
               "rank": 4,
-              "score": 0.2161,
-              "source_pdf": "Allianz_Business_Office_Pack.pdf",
-              "page_number": 1,
-              "section_path": [
-                "Document",
-                "1.  War, nuclear, lawful seizure, wilful acts and territorial limits"
-              ],
-              "preview": "The Policy does not cover loss, destruction, liability or Damage directly or indirectly:"
-            },
-            {
-              "rank": 5,
               "score": 0.2159,
               "source_pdf": "Allianz_Business_PDS.pdf",
               "page_number": 1,
               "section_path": [
                 "Document",
-                "1.  War, nuclear, lawful seizure, wilful acts and territorial limits"
+                "Additional benefi  ts applicable to this Section"
               ],
-              "preview": "The Policy does not cover loss, destruction, liability or Damage directly or indirectly:"
+              "preview": "1. Theft of other equipment Any amount payable under this additional benefi t shall apply in addition to the Sum Insured. We will cover You for theft or attempted theft of any Property Insured not belonging to You but..."
+            },
+            {
+              "rank": 5,
+              "score": 0.2154,
+              "source_pdf": "Allianz_Business_Office_Pack.pdf",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "8.  Aggravated, Punitive or Exemplary Damages, Fines or Penalties"
+              ],
+              "preview": "Your Policy does not cover any fi nes, penalties, exemplary, punitive, liquidated or aggravated damages and/or additional damages resulting from the multiplication of compensatory damages."
             }
           ]
         },
         {
           "question": "Are jewellery items limited?",
-          "latency_ms": 18.69,
+          "latency_ms": 21.08,
           "top_hit_source_pdf": "Allianz_Business_Office_Pack.pdf",
           "top_hit_score": 0.2161,
           "results": [
@@ -962,17 +2326,6 @@
             {
               "rank": 2,
               "score": 0.2159,
-              "source_pdf": "Allianz_Business_Farm_Pack.pdf",
-              "page_number": 1,
-              "section_path": [
-                "Document",
-                "What are unspecifi  ed Personal Eff  ects"
-              ],
-              "preview": "We will cover You in respect of the following unspecifi ed personal eff ects: - a) travellers' suitcases and bags, handbags, briefcases, wallets and purses, but not the contents of these items (apart from the property..."
-            },
-            {
-              "rank": 3,
-              "score": 0.2159,
               "source_pdf": "Allianz_Business_PDS.pdf",
               "page_number": 1,
               "section_path": [
@@ -982,7 +2335,7 @@
               "preview": "1. We will not cover You for Damage insurable under any other Section or Sections of the Policy. This exclusion does not apply to any Damage which would only be insurable under any other Section or Sections because it..."
             },
             {
-              "rank": 4,
+              "rank": 3,
               "score": 0.2143,
               "source_pdf": "Allianz_Business_Office_Pack.pdf",
               "page_number": 1,
@@ -993,7 +2346,7 @@
               "preview": "We will not pay for: 1. a. motor vehicles, caravans, trailers, motorcycles, watercraft, Hovercraft, Aircraft or aerial devices or the accessories (whether fi tted or otherwise) of or to any of these; - b. i. Money; - ..."
             },
             {
-              "rank": 5,
+              "rank": 4,
               "score": 0.1664,
               "source_pdf": "Allianz_Business_Farm_Pack.pdf",
               "page_number": 1,
@@ -1002,10 +2355,1267 @@
                 "Contents with specifi  ed limits of cover"
               ],
               "preview": "15. the following special items: - a) jewellery, including uncut stones, watches or an item containing gold and/or silver; We will not pay more than $10,000 for any one item, pair, Set or Collection unless they are se..."
+            },
+            {
+              "rank": 5,
+              "score": 0.1652,
+              "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "'Plant and Equipment' means:"
+              ],
+              "preview": "- Movable, towable or drawn agricultural implements, trailers, ploughs, tools, machines or cultivators and similar farm machinery and implements and any of their accessories, equipment and/or spare parts; - Pumps and ..."
             }
           ]
         }
       ]
+    },
+    {
+      "started_at": "2026-04-23T07:30:35.968463+00:00",
+      "parser_backend_requested": "docling",
+      "parser_backend_used": [
+        "docling"
+      ],
+      "embedder_backend": "hashing",
+      "vector_store_backend": "chroma",
+      "chunker": {
+        "max_tokens": 500,
+        "overlap_tokens": 50
+      },
+      "status": "error",
+      "error": "InternalError: Database error: error returned from database: (code: 1032) attempt to write a readonly database",
+      "summary": {
+        "documents_total": 5,
+        "documents_parsed": 5,
+        "documents_failed": 0,
+        "sections_total": 2017,
+        "words_total": 225202,
+        "chunks_total": 2081,
+        "avg_parse_ms_per_document": 21573.22,
+        "parse_ms_total": 107866.1,
+        "chunk_ms_total": 12.67,
+        "index_ms_total": 0.0,
+        "retrieval_ms_total": 10.1,
+        "avg_retrieval_ms": 0.0,
+        "p95_retrieval_ms": 0.0,
+        "avg_words_per_section": 111.65,
+        "avg_chunk_tokens": 109.76,
+        "max_chunk_tokens": 500,
+        "chunk_expansion_ratio": 1.014,
+        "words_per_second": 2087.79
+      },
+      "documents": [
+        {
+          "source_pdf": "Allianz_Business_Commercial_Motor.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 10408.95,
+          "sections": 153,
+          "words": 14173,
+          "avg_words_per_section": 92.63,
+          "chunks": 157,
+          "avg_chunk_tokens": 91.55,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Commercial Motor Vehicle Insurance",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Commercial Motor Vehicle Insurance"
+              ],
+              "preview": "Product Disclosure Statement (PDS) and Policy Document <!-- image -->"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "Allianz Australia Insurance Limited ABN 15 000 122 850 AFS Licence No. 234708 is the insurer of the Policy and is one of Australia's largest general insurers. We utilise years of local expertise, combined with global ..."
+            },
+            {
+              "heading": "In this PDS:",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "In this PDS:"
+              ],
+              "preview": "'We', 'Our', or 'Us' refers to the insurer Allianz Australia Insurance Limited, ABN 15 000 122 850, AFS Licence No. 234708. Telephone: 13 2664 and website: allianz.com.au"
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| Introduction | | Section 2 - Third Party Property Damage | Section 2 - Third Party Property Damage | |--------------------------------------------------------------------------------|--------------------------------..."
+            },
+            {
+              "heading": "Introduction",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Introduction"
+              ],
+              "preview": "Welcome and thank You for choosing Our Commercial Motor Vehicle Insurance Policy."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 28934.04,
+          "sections": 449,
+          "words": 59496,
+          "avg_words_per_section": 132.51,
+          "chunks": 471,
+          "avg_chunk_tokens": 128.65,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Product Disclosure Statement (PDS) Farm Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Product Disclosure Statement (PDS) Farm Pack"
+              ],
+              "preview": "and Policy Document <!-- image -->"
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| | Page | | Page | |---------------------------------------------------------------------|--------|-------------------------------------------------------------------------|--------| | Introduction | | How Wewill set..."
+            },
+            {
+              "heading": "Introduction",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Introduction"
+              ],
+              "preview": "This document contains information designed to help You decide whether to buy Our Farm Pack Policy."
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "Allianz Australia Insurance Limited AFS Licence No. 234708, ABN 15 000 122 850 is the insurer of this Policy and is one of Australia's largest general insurers. We utilise years of local expertise, combined with globa..."
+            },
+            {
+              "heading": "Summary of the available covers",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "You can apply to buy any of the following - You choose what You need. You can not however take out a Farm Pack Policy that is comprised solely of the following covers: - Section One - Home Property; or - Section Four ..."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Office_Pack.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 27171.22,
+          "sections": 556,
+          "words": 61270,
+          "avg_words_per_section": 110.2,
+          "chunks": 570,
+          "avg_chunk_tokens": 108.72,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Offi ce Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Offi ce Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) <!-- image -->"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "General Information",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "General Information"
+              ],
+              "preview": "The General Information set out below is provided for your information only. It does not form part of the insurance contract with you, and is not part of the policy. Nothing contained in the General Information impose..."
+            },
+            {
+              "heading": "Claims made",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Claims made"
+              ],
+              "preview": "The Management Liability and Professional Indemnity Sections of the policy operates on a 'claims made and notifi ed' basis. This means that the section covers you for claims as defi ned in the Management Liability or ..."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| | page | | page | |-------------------------------------------------|--------|-------------------------------------------------|--------| | Introduction | 4 | Machinery Breakdown Section | 39 | | General definitions..."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_PDS.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 28245.75,
+          "sections": 587,
+          "words": 62872,
+          "avg_words_per_section": 107.11,
+          "chunks": 603,
+          "avg_chunk_tokens": 105.59,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Business Insurance Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Business Insurance Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) <!-- image -->"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "General Information",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "General Information"
+              ],
+              "preview": "The General Information set out below is provided for your information only. It does not form part of the insurance contract with you, and is not part of the policy. Nothing contained in the General Information impose..."
+            },
+            {
+              "heading": "Claims made",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Claims made"
+              ],
+              "preview": "The Management Liability Section of the policy operates on a 'claims made and notified' basis. This means that the section covers you for claims as defined in the Management Liability Section made against you and noti..."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| | page | | page | |---------------------------------------------------|--------|-------------------------------------------------|--------| | Introduction | 5 | Money Section | 33 | | Summary of the available covers..."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Trades_and_Services.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 13106.15,
+          "sections": 272,
+          "words": 27391,
+          "avg_words_per_section": 100.7,
+          "chunks": 280,
+          "avg_chunk_tokens": 99.25,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Trades and Services Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Trades and Services Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) <!-- image -->"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| | page | | page | |-------------------------------------------------|--------|-------------------------------------------------------|--------| | Introduction | 2 | Commercial Motor Section | 31 | | General definiti..."
+            },
+            {
+              "heading": "Summary of the available covers",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "heading": "About this insurance",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About this insurance"
+              ],
+              "preview": "This is an important document. You should read it carefully before making a decision to purchase this insurance. It will help You to: - decide whether this insurance will meet Your needs; and - compare it with other p..."
+            }
+          ]
+        }
+      ],
+      "queries": []
+    },
+    {
+      "started_at": "2026-04-23T07:32:23.899379+00:00",
+      "parser_backend_requested": "docling",
+      "parser_backend_used": [
+        "docling"
+      ],
+      "embedder_backend": "sentence_transformers",
+      "vector_store_backend": "jsonl",
+      "chunker": {
+        "max_tokens": 500,
+        "overlap_tokens": 50
+      },
+      "status": "ok",
+      "error": null,
+      "summary": {
+        "documents_total": 5,
+        "documents_parsed": 5,
+        "documents_failed": 0,
+        "sections_total": 2017,
+        "words_total": 225202,
+        "chunks_total": 2081,
+        "avg_parse_ms_per_document": 21219.33,
+        "parse_ms_total": 106096.66,
+        "chunk_ms_total": 12.82,
+        "index_ms_total": 21335.81,
+        "retrieval_ms_total": 21433.39,
+        "avg_retrieval_ms": 48.69,
+        "p95_retrieval_ms": 50.54,
+        "avg_words_per_section": 111.65,
+        "avg_chunk_tokens": 109.76,
+        "max_chunk_tokens": 500,
+        "chunk_expansion_ratio": 1.014,
+        "words_per_second": 2122.61
+      },
+      "documents": [
+        {
+          "source_pdf": "Allianz_Business_Commercial_Motor.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 9837.98,
+          "sections": 153,
+          "words": 14173,
+          "avg_words_per_section": 92.63,
+          "chunks": 157,
+          "avg_chunk_tokens": 91.55,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Commercial Motor Vehicle Insurance",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Commercial Motor Vehicle Insurance"
+              ],
+              "preview": "Product Disclosure Statement (PDS) and Policy Document <!-- image -->"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "Allianz Australia Insurance Limited ABN 15 000 122 850 AFS Licence No. 234708 is the insurer of the Policy and is one of Australia's largest general insurers. We utilise years of local expertise, combined with global ..."
+            },
+            {
+              "heading": "In this PDS:",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "In this PDS:"
+              ],
+              "preview": "'We', 'Our', or 'Us' refers to the insurer Allianz Australia Insurance Limited, ABN 15 000 122 850, AFS Licence No. 234708. Telephone: 13 2664 and website: allianz.com.au"
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| Introduction | | Section 2 - Third Party Property Damage | Section 2 - Third Party Property Damage | |--------------------------------------------------------------------------------|--------------------------------..."
+            },
+            {
+              "heading": "Introduction",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Introduction"
+              ],
+              "preview": "Welcome and thank You for choosing Our Commercial Motor Vehicle Insurance Policy."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 26593.52,
+          "sections": 449,
+          "words": 59496,
+          "avg_words_per_section": 132.51,
+          "chunks": 471,
+          "avg_chunk_tokens": 128.65,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Product Disclosure Statement (PDS) Farm Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Product Disclosure Statement (PDS) Farm Pack"
+              ],
+              "preview": "and Policy Document <!-- image -->"
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| | Page | | Page | |---------------------------------------------------------------------|--------|-------------------------------------------------------------------------|--------| | Introduction | | How Wewill set..."
+            },
+            {
+              "heading": "Introduction",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Introduction"
+              ],
+              "preview": "This document contains information designed to help You decide whether to buy Our Farm Pack Policy."
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "Allianz Australia Insurance Limited AFS Licence No. 234708, ABN 15 000 122 850 is the insurer of this Policy and is one of Australia's largest general insurers. We utilise years of local expertise, combined with globa..."
+            },
+            {
+              "heading": "Summary of the available covers",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "You can apply to buy any of the following - You choose what You need. You can not however take out a Farm Pack Policy that is comprised solely of the following covers: - Section One - Home Property; or - Section Four ..."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Office_Pack.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 26174.27,
+          "sections": 556,
+          "words": 61270,
+          "avg_words_per_section": 110.2,
+          "chunks": 570,
+          "avg_chunk_tokens": 108.72,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Offi ce Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Offi ce Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) <!-- image -->"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "General Information",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "General Information"
+              ],
+              "preview": "The General Information set out below is provided for your information only. It does not form part of the insurance contract with you, and is not part of the policy. Nothing contained in the General Information impose..."
+            },
+            {
+              "heading": "Claims made",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Claims made"
+              ],
+              "preview": "The Management Liability and Professional Indemnity Sections of the policy operates on a 'claims made and notifi ed' basis. This means that the section covers you for claims as defi ned in the Management Liability or ..."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| | page | | page | |-------------------------------------------------|--------|-------------------------------------------------|--------| | Introduction | 4 | Machinery Breakdown Section | 39 | | General definitions..."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_PDS.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 29030.7,
+          "sections": 587,
+          "words": 62872,
+          "avg_words_per_section": 107.11,
+          "chunks": 603,
+          "avg_chunk_tokens": 105.59,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Business Insurance Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Business Insurance Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) <!-- image -->"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "General Information",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "General Information"
+              ],
+              "preview": "The General Information set out below is provided for your information only. It does not form part of the insurance contract with you, and is not part of the policy. Nothing contained in the General Information impose..."
+            },
+            {
+              "heading": "Claims made",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Claims made"
+              ],
+              "preview": "The Management Liability Section of the policy operates on a 'claims made and notified' basis. This means that the section covers you for claims as defined in the Management Liability Section made against you and noti..."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| | page | | page | |---------------------------------------------------|--------|-------------------------------------------------|--------| | Introduction | 5 | Money Section | 33 | | Summary of the available covers..."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Trades_and_Services.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 14460.19,
+          "sections": 272,
+          "words": 27391,
+          "avg_words_per_section": 100.7,
+          "chunks": 280,
+          "avg_chunk_tokens": 99.25,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Trades and Services Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Trades and Services Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) <!-- image -->"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| | page | | page | |-------------------------------------------------|--------|-------------------------------------------------------|--------| | Introduction | 2 | Commercial Motor Section | 31 | | General definiti..."
+            },
+            {
+              "heading": "Summary of the available covers",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "heading": "About this insurance",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About this insurance"
+              ],
+              "preview": "This is an important document. You should read it carefully before making a decision to purchase this insurance. It will help You to: - decide whether this insurance will meet Your needs; and - compare it with other p..."
+            }
+          ]
+        }
+      ],
+      "queries": [
+        {
+          "question": "Does the policy cover theft?",
+          "latency_ms": 50.54,
+          "top_hit_source_pdf": "Allianz_Business_Office_Pack.pdf",
+          "top_hit_score": 0.2664,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.2664,
+              "source_pdf": "Allianz_Business_Office_Pack.pdf",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "rank": 2,
+              "score": 0.2661,
+              "source_pdf": "Allianz_Business_PDS.pdf",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "rank": 3,
+              "score": 0.2654,
+              "source_pdf": "Allianz_Business_Trades_and_Services.pdf",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "rank": 4,
+              "score": 0.2317,
+              "source_pdf": "Allianz_Business_PDS.pdf",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Additional benefi  ts applicable to this Section"
+              ],
+              "preview": "1. Theft of other equipment Any amount payable under this additional benefi t shall apply in addition to the Sum Insured. We will cover You for theft or attempted theft of any Property Insured not belonging to You but..."
+            },
+            {
+              "rank": 5,
+              "score": 0.2161,
+              "source_pdf": "Allianz_Business_PDS.pdf",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "12.  Theft without forcible entry"
+              ],
+              "preview": "We will cover loss or Damage to Property Insured caused by Theft from the Situation during the Period of Insurance even if there is no visible forcible and violent entry. Provided that We will not pay for: - a. Theft ..."
+            }
+          ]
+        },
+        {
+          "question": "Are jewellery items limited?",
+          "latency_ms": 46.84,
+          "top_hit_source_pdf": "Allianz_Business_Office_Pack.pdf",
+          "top_hit_score": 0.2292,
+          "results": [
+            {
+              "rank": 1,
+              "score": 0.2292,
+              "source_pdf": "Allianz_Business_Office_Pack.pdf",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Specifi  c exclusions applicable to this Section"
+              ],
+              "preview": "We will not pay for: 1. a. motor vehicles, caravans, trailers, motorcycles, watercraft, Hovercraft, Aircraft or aerial devices or the accessories (whether fi tted or otherwise) of or to any of these; - b. i. Money; - ..."
+            },
+            {
+              "rank": 2,
+              "score": 0.2161,
+              "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "What are unspecifi  ed Personal Eff  ects"
+              ],
+              "preview": "We will cover You in respect of the following unspecifi ed personal eff ects: - a) travellers' suitcases and bags, handbags, briefcases, wallets and purses, but not the contents of these items (apart from the property..."
+            },
+            {
+              "rank": 3,
+              "score": 0.2161,
+              "source_pdf": "Allianz_Business_Office_Pack.pdf",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Specifi  c exclusions applicable to this Section"
+              ],
+              "preview": "1. We will not cover You for Damage insurable under any other Section or Sections of the Policy. This exclusion does not apply to any Damage which would only be insurable under any other Section or Sections because it..."
+            },
+            {
+              "rank": 4,
+              "score": 0.2159,
+              "source_pdf": "Allianz_Business_PDS.pdf",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Specific exclusions applicable to this Section"
+              ],
+              "preview": "1. We will not cover You for Damage insurable under any other Section or Sections of the Policy. This exclusion does not apply to any Damage which would only be insurable under any other Section or Sections because it..."
+            },
+            {
+              "rank": 5,
+              "score": 0.2156,
+              "source_pdf": "Allianz_Business_Trades_and_Services.pdf",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Specifi  c exclusions applicable to this Section"
+              ],
+              "preview": "We will not pay for: 1. a. motor vehicles, caravans, trailers, motorcycles, watercraft, Hovercraft, Aircraft or aerial devices or the accessories (whether fi tted or otherwise) of or to any of these; - b. i. Money; - ..."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "started_at": "2026-04-23T07:34:31.485076+00:00",
+      "parser_backend_requested": "docling",
+      "parser_backend_used": [
+        "docling"
+      ],
+      "embedder_backend": "sentence_transformers",
+      "vector_store_backend": "chroma",
+      "chunker": {
+        "max_tokens": 500,
+        "overlap_tokens": 50
+      },
+      "status": "error",
+      "error": "InternalError: Database error: error returned from database: (code: 1032) attempt to write a readonly database",
+      "summary": {
+        "documents_total": 5,
+        "documents_parsed": 5,
+        "documents_failed": 0,
+        "sections_total": 2017,
+        "words_total": 225202,
+        "chunks_total": 2081,
+        "avg_parse_ms_per_document": 21475.62,
+        "parse_ms_total": 107378.08,
+        "chunk_ms_total": 12.51,
+        "index_ms_total": 0.0,
+        "retrieval_ms_total": 5648.88,
+        "avg_retrieval_ms": 0.0,
+        "p95_retrieval_ms": 0.0,
+        "avg_words_per_section": 111.65,
+        "avg_chunk_tokens": 109.76,
+        "max_chunk_tokens": 500,
+        "chunk_expansion_ratio": 1.014,
+        "words_per_second": 2097.28
+      },
+      "documents": [
+        {
+          "source_pdf": "Allianz_Business_Commercial_Motor.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 11859.32,
+          "sections": 153,
+          "words": 14173,
+          "avg_words_per_section": 92.63,
+          "chunks": 157,
+          "avg_chunk_tokens": 91.55,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Commercial Motor Vehicle Insurance",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Commercial Motor Vehicle Insurance"
+              ],
+              "preview": "Product Disclosure Statement (PDS) and Policy Document <!-- image -->"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "Allianz Australia Insurance Limited ABN 15 000 122 850 AFS Licence No. 234708 is the insurer of the Policy and is one of Australia's largest general insurers. We utilise years of local expertise, combined with global ..."
+            },
+            {
+              "heading": "In this PDS:",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "In this PDS:"
+              ],
+              "preview": "'We', 'Our', or 'Us' refers to the insurer Allianz Australia Insurance Limited, ABN 15 000 122 850, AFS Licence No. 234708. Telephone: 13 2664 and website: allianz.com.au"
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| Introduction | | Section 2 - Third Party Property Damage | Section 2 - Third Party Property Damage | |--------------------------------------------------------------------------------|--------------------------------..."
+            },
+            {
+              "heading": "Introduction",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Introduction"
+              ],
+              "preview": "Welcome and thank You for choosing Our Commercial Motor Vehicle Insurance Policy."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Farm_Pack.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 28449.37,
+          "sections": 449,
+          "words": 59496,
+          "avg_words_per_section": 132.51,
+          "chunks": 471,
+          "avg_chunk_tokens": 128.65,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Product Disclosure Statement (PDS) Farm Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Product Disclosure Statement (PDS) Farm Pack"
+              ],
+              "preview": "and Policy Document <!-- image -->"
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| | Page | | Page | |---------------------------------------------------------------------|--------|-------------------------------------------------------------------------|--------| | Introduction | | How Wewill set..."
+            },
+            {
+              "heading": "Introduction",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Introduction"
+              ],
+              "preview": "This document contains information designed to help You decide whether to buy Our Farm Pack Policy."
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "Allianz Australia Insurance Limited AFS Licence No. 234708, ABN 15 000 122 850 is the insurer of this Policy and is one of Australia's largest general insurers. We utilise years of local expertise, combined with globa..."
+            },
+            {
+              "heading": "Summary of the available covers",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "You can apply to buy any of the following - You choose what You need. You can not however take out a Farm Pack Policy that is comprised solely of the following covers: - Section One - Home Property; or - Section Four ..."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Office_Pack.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 26361.95,
+          "sections": 556,
+          "words": 61270,
+          "avg_words_per_section": 110.2,
+          "chunks": 570,
+          "avg_chunk_tokens": 108.72,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Offi ce Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Offi ce Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) <!-- image -->"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "General Information",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "General Information"
+              ],
+              "preview": "The General Information set out below is provided for your information only. It does not form part of the insurance contract with you, and is not part of the policy. Nothing contained in the General Information impose..."
+            },
+            {
+              "heading": "Claims made",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Claims made"
+              ],
+              "preview": "The Management Liability and Professional Indemnity Sections of the policy operates on a 'claims made and notifi ed' basis. This means that the section covers you for claims as defi ned in the Management Liability or ..."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| | page | | page | |-------------------------------------------------|--------|-------------------------------------------------|--------| | Introduction | 4 | Machinery Breakdown Section | 39 | | General definitions..."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_PDS.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 27973.95,
+          "sections": 587,
+          "words": 62872,
+          "avg_words_per_section": 107.11,
+          "chunks": 603,
+          "avg_chunk_tokens": 105.59,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Business Insurance Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Business Insurance Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) <!-- image -->"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "General Information",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "General Information"
+              ],
+              "preview": "The General Information set out below is provided for your information only. It does not form part of the insurance contract with you, and is not part of the policy. Nothing contained in the General Information impose..."
+            },
+            {
+              "heading": "Claims made",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Claims made"
+              ],
+              "preview": "The Management Liability Section of the policy operates on a 'claims made and notified' basis. This means that the section covers you for claims as defined in the Management Liability Section made against you and noti..."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| | page | | page | |---------------------------------------------------|--------|-------------------------------------------------|--------| | Introduction | 5 | Money Section | 33 | | Summary of the available covers..."
+            }
+          ]
+        },
+        {
+          "source_pdf": "Allianz_Business_Trades_and_Services.pdf",
+          "parser_backend": "docling",
+          "status": "ok",
+          "parse_ms": 12733.49,
+          "sections": 272,
+          "words": 27391,
+          "avg_words_per_section": 100.7,
+          "chunks": 280,
+          "avg_chunk_tokens": 99.25,
+          "max_chunk_tokens": 500,
+          "sample_sections": [
+            {
+              "heading": "Document",
+              "page_number": 1,
+              "section_path": [
+                "Document"
+              ],
+              "preview": "<!-- image -->"
+            },
+            {
+              "heading": "Trades and Services Pack",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Trades and Services Pack"
+              ],
+              "preview": "Product Disclosure Statement (PDS) <!-- image -->"
+            },
+            {
+              "heading": "About Allianz",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About Allianz"
+              ],
+              "preview": "The insurer of this product is Allianz Australia Insurance Limited ABN 15 000 122 850 (Allianz) AFS Licence No. 234708, an authorised Australian insurer, regulated by the Australian Prudential Regulation Authority (AP..."
+            },
+            {
+              "heading": "Table of contents",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Table of contents"
+              ],
+              "preview": "| | page | | page | |-------------------------------------------------|--------|-------------------------------------------------------|--------| | Introduction | 2 | Commercial Motor Section | 31 | | General definiti..."
+            },
+            {
+              "heading": "Summary of the available covers",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "Summary of the available covers"
+              ],
+              "preview": "Not everything is covered by the Policy. The following is a limited summary only and as such does not form part of the terms of Your insurance. All cover is subject to the applicable Sum Insured, Limit of Indemnity, o..."
+            },
+            {
+              "heading": "About this insurance",
+              "page_number": 1,
+              "section_path": [
+                "Document",
+                "About this insurance"
+              ],
+              "preview": "This is an important document. You should read it carefully before making a decision to purchase this insurance. It will help You to: - decide whether this insurance will meet Your needs; and - compare it with other p..."
+            }
+          ]
+        }
+      ],
+      "queries": []
     }
   ]
 }

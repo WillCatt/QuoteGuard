@@ -2,8 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from quoteguard.orchestration.state import ConversationState
-from quoteguard.orchestration.transitions import missing_required_slots, next_phase
+from quoteguard.orchestration.state import ConversationState, missing_required_slots, next_phase
 
 
 class TransitionTest(unittest.TestCase):

@@ -5,14 +5,14 @@ from __future__ import annotations
 from pathlib import Path
 
 from quoteguard.api.pricing import price_quote
-from quoteguard.api.schemas import QuoteRequest
-from quoteguard.guardrails.behaviour import BehaviourGuardrail
-from quoteguard.guardrails.input import InputGuardrail
-from quoteguard.guardrails.output import OutputGuardrail
-from quoteguard.guardrails.retrieval import RetrievalGuardrail
+from quoteguard.api.pricing import QuoteRequest
+from quoteguard.guardrails.engine import (
+    BehaviourGuardrail,
+    InputGuardrail,
+    OutputGuardrail,
+    RetrievalGuardrail,
+)
 from quoteguard.observability.audit import AuditLogger
-from quoteguard.orchestration.models import TurnResult
-from quoteguard.orchestration.slots import RISK_PROFILE_SLOT_NAMES, extract_slots
 from quoteguard.orchestration.state import (
     ConversationState,
     PHASE_COVERAGE_QUESTIONS,
@@ -21,8 +21,11 @@ from quoteguard.orchestration.state import (
     PHASE_PRODUCT_SELECT,
     PHASE_QUOTE_SUMMARY,
     PHASE_RISK_PROFILE,
+    TurnResult,
+    extract_slots,
+    missing_required_slots,
+    next_phase,
 )
-from quoteguard.orchestration.transitions import missing_required_slots, next_phase
 from quoteguard.retrieval.service import RetrievalService
 
 

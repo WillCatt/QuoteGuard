@@ -6,11 +6,13 @@ import hashlib
 import json
 from pathlib import Path
 from string import Formatter
-from typing import Any
+from typing import Any, TypeVar
 
 from quoteguard._compat import BaseModel, ValidationError
 from quoteguard.config.settings import settings
-from quoteguard.llm.structured_output import validate_payload
+
+
+ModelT = TypeVar("ModelT", bound=BaseModel)
 
 
 class CachedResponse(BaseModel):
@@ -24,6 +26,21 @@ class TemplateRenderer:
     def render(self, template_path: Path, **context: Any) -> str:
         template = template_path.read_text(encoding="utf-8")
         return Formatter().vformat(template, args=(), kwargs=context)
+
+
+def parse_json_object(payload: str) -> dict[str, Any]:
+    try:
+        data = json.loads(payload)
+    except json.JSONDecodeError as exc:
+        raise ValidationError(f"Invalid JSON payload: {exc}") from exc
+    if not isinstance(data, dict):
+        raise ValidationError("Structured output must be a JSON object")
+    return data
+
+
+def validate_payload(payload: str | dict[str, Any], model_type: type[ModelT]) -> ModelT:
+    data = parse_json_object(payload) if isinstance(payload, str) else payload
+    return model_type.model_validate(data)
 
 
 class LLMClient:
