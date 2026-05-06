@@ -21,4 +21,6 @@ data/processed/chroma/*
 !data/processed/chroma/.gitkeep
 data/processed/logs/*
 !data/processed/logs/.gitkeep
+experiments/retrieval_lab/runs/*
+!experiments/retrieval_lab/runs/.gitkeep
 *.pyc

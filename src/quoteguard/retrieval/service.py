@@ -20,8 +20,10 @@ class RetrievalService:
         *,
         embedder_backend: EmbedderBackend | None = None,
         vector_store_backend: VectorStoreBackend | None = None,
+        use_reranker: bool = True,
     ):
         self.chunks = chunks
+        self.use_reranker = use_reranker
         self.embedder = get_embedder(embedder_backend)
         self.vector_store = get_vector_store(
             store_path=store_path,
@@ -37,4 +39,6 @@ class RetrievalService:
         dense = self.vector_store.query(text, k=max(10, k), filters=filters)
         sparse = self.sparse.query(text, k=max(10, k), filters=filters)
         fused = reciprocal_rank_fusion([dense, sparse])
+        if not self.use_reranker:
+            return fused[:k]
         return self.reranker.rerank(text, fused, top_k=k)
