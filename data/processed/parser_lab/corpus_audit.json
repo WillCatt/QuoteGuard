@@ -1,0 +1,21 @@
+[
+  {
+    "file_name": "Allianz_Business_PDS.pdf",
+    "file_size_bytes": 574374,
+    "page_count": 100,
+    "source_version_date": "untitled",
+    "native_pdf": true,
+    "layout_profile": {
+      "text_heavy": true,
+      "table_heavy": "manual_review",
+      "form_heavy": "manual_review",
+      "image_heavy": false
+    },
+    "has_multi_column_layout": true,
+    "has_repeated_headers_footers": false,
+    "has_page_numbers": true,
+    "has_tables_across_page_breaks": "manual_review",
+    "expected_retrieval_difficulty": "manual_review",
+    "checksum_sha256": "27c7e8996cfad3f3d97a8ab153edfb2ae75eadd26a51c3fbfb617afa9520dac1"
+  }
+]

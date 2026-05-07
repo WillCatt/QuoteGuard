@@ -1,177 +1,115 @@
 # QuoteGuard Full Project Writeup
 
-## 1. Project Summary
+## Project Summary
 
-QuoteGuard is a guardrailed retrieval-augmented chatbot for Australian home contents
-insurance quote support. The system is grounded in insurer PDS PDFs, avoids advice,
-does not generate pricing in chat, cites sources, resists prompt injection, and hands
-pricing to a deterministic pricing engine.
+QuoteGuard is being rebuilt from the ground up as a portfolio project for Australian
+insurance PDF retrieval. The deliberate approach is:
 
-## 2. Problem Framing
+1. decide the parser on real evidence
+2. then design chunking
+3. then retrieval
+4. then LLM and guardrails
 
-Describe:
+This file should stay lightweight during the parser phase and grow only when the next
+phase is justified by results.
 
-- the business problem
-- why insurance quoting support needs retrieval grounding
-- why advice boundaries matter
-- why deterministic pricing separation matters
+## Current Phase
 
-## 3. Product Contract
+Phase 1: parser lab
 
-Reference the six guarantees from `docs/contract.md` and explain how they shaped the
-architecture.
+Current scope:
 
-## 4. Architecture Overview
+- corpus audit
+- parser comparison
+- manual inspection of extracted structure
 
-Cover:
+Out of scope for now:
 
-- ingestion
-- retrieval
+- app UI
 - orchestration
+- pricing engine
+- retrieval benchmark suite
 - guardrails
-- pricing boundary
-- observability
 
-Add diagrams, screenshots, and links to reports as the project matures.
+## Corpus
 
-## 5. Phase Log
+Corpus location:
 
-### Phase 1: Corpus Audit
+- `data/raw_pdfs/`
 
-Goals:
+Rules:
 
-- collect official PDS PDFs
-- audit corpus quality and layout difficulty
+- raw PDFs are immutable
+- all outputs go to `data/processed/parser_lab/`
 
-Evidence:
+## Notebook Workflow
 
-- corpus summary table
-- notes from `docs/corpus_notes.md`
+Primary working surface:
 
-### Phase 2: Parser Comparison
+- `notebooks/01_parser_lab.ipynb`
 
-Goals:
+The notebook should be used to:
 
-- compare PyMuPDF4LLM vs Docling
-- choose the default parser based on retrieval plus manual quality
+- inspect the corpus
+- compute audit summaries
+- run parser comparisons
+- save parsed outputs
+- export run summaries
 
-Evidence:
+## Phase Log
 
-- `reports/parser_comparison.md`
-- benchmark charts
-- selected parser rationale
+### Phase 1: Parser Lab
 
-### Phase 3: Chunking Iteration
+Goal:
 
-Goals:
+- choose the default parser based on actual insurer PDFs
 
-- compare fixed-size, section-aware, page-based, and hybrid chunking
-- preserve headings and page metadata
+Questions to answer:
 
-Evidence:
+- which parser preserves reading order best?
+- which parser keeps headings and page boundaries usable?
+- how noisy are headers and footers?
+- how bad are tables and multi-column pages?
+- which parser is good enough to move to chunking?
 
-- `reports/chunk_inspection.md`
-- sample chunks
-- benchmark results
+Evidence to capture:
 
-### Phase 4: Retrieval Benchmarking
+- corpus audit table
+- parse timing table
+- extracted character counts
+- parser output samples
+- manual scoring notes
 
-Goals:
+Decision:
 
-- run 20 real sanity questions across configurations
-- compare Hit@1, Hit@3, Recall@5, MRR@5, nDCG@5, latency, context precision, and context recall
+- parser chosen:
+- reason:
 
-Evidence:
+### Phase 2: Chunking
 
-- `experiments/retrieval_lab/runs/`
-- dashboard screenshots
+Not started yet.
 
-### Phase 5: Guardrailed QA Flow
+### Phase 3: Retrieval
 
-Goals:
+Not started yet.
 
-- connect retrieval into the deterministic state machine
-- validate prompt injection resistance, advice refusal, citation enforcement, and pricing boundary
+### Phase 4: LLM + Guardrails
 
-Evidence:
+Not started yet.
 
-- adversarial eval outputs
-- audit logs
+## Notes and Reflections
 
-### Phase 6: Local LLM Integration
+Use this section as a running journal for:
 
-Goals:
+- what worked
+- what failed
+- what was surprising in the PDFs
+- why a parser was accepted or rejected
 
-- wire real Ollama calls
-- preserve grounding and handoff constraints
+## Portfolio Angle
 
-Evidence:
+What this phase already demonstrates:
 
-- example sessions
-- failure cases and mitigations
-
-## 6. Evaluation Methodology
-
-Describe:
-
-- gold question creation
-- parser scoring method
-- chunk inspection method
-- retrieval metrics
-- adversarial testing
-
-## 7. Key Findings
-
-Summarize:
-
-- which parser won and why
-- which chunking strategy won and why
-- which backend combinations were too slow or brittle
-- what guardrail failures were found and fixed
-
-## 8. Tradeoffs and Design Decisions
-
-Discuss:
-
-- why the repo stayed modular but not over-fragmented
-- why retrieval quality was prioritized before full chat polish
-- why pricing is deterministic and outside the chat model
-
-## 9. Failure Analysis
-
-Document:
-
-- parser failures
-- table extraction problems
-- chunking failure modes
-- retrieval misses
-- hallucination or citation issues
-- prompt injection attempts
-
-## 10. Demo Guide
-
-Explain how to:
-
-- build the index
-- generate the benchmark report
-- run the retrieval lab dashboard
-- run tests
-- reproduce the best configuration
-
-## 11. Portfolio Reflection
-
-Describe:
-
-- what this project demonstrates technically
-- what you would improve next
-- how you would productionize the system
-
-## 12. Appendix
-
-Include:
-
-- metric tables
-- corpus list
-- configuration snapshots
-- screenshots
-- links to experiment runs
+- disciplined scope control
+- willingness to reduce architecture until evidence exists
+- empirical parser comparison on a real domain corpus

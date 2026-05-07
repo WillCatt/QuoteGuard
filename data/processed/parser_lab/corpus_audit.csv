@@ -1,0 +1,2 @@
+file_name,file_size_bytes,page_count,source_version_date,native_pdf,layout_profile,has_multi_column_layout,has_repeated_headers_footers,has_page_numbers,has_tables_across_page_breaks,expected_retrieval_difficulty,checksum_sha256
+Allianz_Business_PDS.pdf,574374,100,untitled,True,"{'text_heavy': True, 'table_heavy': 'manual_review', 'form_heavy': 'manual_review', 'image_heavy': False}",True,False,True,manual_review,manual_review,27c7e8996cfad3f3d97a8ab153edfb2ae75eadd26a51c3fbfb617afa9520dac1

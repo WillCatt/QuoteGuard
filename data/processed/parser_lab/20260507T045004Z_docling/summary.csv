@@ -1,0 +1,2 @@
+file_name,parser,parse_time_ms,page_count,parse_time_per_page_ms,sections_detected,total_extracted_characters,tables_detected,failed_pages,empty_pages,warnings_errors,output_size_bytes,run_dir
+Allianz_Business_PDS.pdf,docling,46450.3,100,464.5,587,378049,0,0,0,,494775,/Users/williamcatt/Documents/Projects/QuoteGuard/data/processed/parser_lab/20260507T045004Z_docling

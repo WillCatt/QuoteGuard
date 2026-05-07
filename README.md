@@ -1,90 +1,69 @@
 # QuoteGuard
 
-QuoteGuard is a guardrailed retrieval-augmented chatbot for insurance quote support. It is designed around a narrow contract: grounded answers only, no advice, no chatbot-generated prices, mandatory citations, prompt-injection resistance, and human handoff outside the state machine.
+QuoteGuard is being rebuilt from the ground up as a notebook-first project.
 
-## Contract
+The current scope is intentionally narrow:
 
-The six guarantees are defined in [docs/contract.md](/Users/williamcatt/Documents/Projects/PDF%20RAG%20with%20Guardrails/docs/contract.md). The implementation reflects them through:
+- compare PDF parsers on the local insurer corpus
+- record corpus audit findings
+- inspect parser outputs manually
+- decide the default parser before building chunking, retrieval, chat, or guardrails
 
-- deterministic orchestration in `src/quoteguard/orchestration`
-- layered guardrails in `src/quoteguard/guardrails`
-- retrieval and citation discipline in `src/quoteguard/retrieval`
-- a strict pricing boundary in `src/quoteguard/api/pricing.py`
+## Current Phase
 
-## Repository Layout
+Phase 1 is a single lab notebook:
 
-The repository is implementation-first:
+- [notebooks/01_parser_lab.ipynb](/Users/williamcatt/Documents/Projects/QuoteGuard/notebooks/01_parser_lab.ipynb)
 
-- `src/quoteguard/`: package code
-- `tests/`: unit and integration coverage
-- `data/`: local-only corpora, processed artefacts, eval datasets
-- `evals/`: evaluation harnesses and report
-- `docs/`: contract, design choices, corpus notes, architecture, future work
-- `scripts/`: ingestion and local smoke tools
+This notebook is the working surface for:
 
-## Local Setup
+- corpus audit
+- parser comparison
+- output inspection
+- export of parser-lab artefacts into `data/processed/parser_lab`
 
-The intended workflow uses `uv`, `ruff`, and `pytest`:
+## Minimal Repository Shape
 
-```bash
-uv sync --all-extras
-uv run pytest
-uv run streamlit run src/quoteguard/ui/app.py
-```
+- `data/raw_pdfs/`
+  Raw insurer PDFs. These should remain immutable.
+- `data/processed/parser_lab/`
+  Notebook outputs, audit summaries, parser runs.
+- `notebooks/01_parser_lab.ipynb`
+  The main experiment notebook.
+- `docs/full_project_writeup.md`
+  The portfolio writeup that will be updated as phases are completed.
+- `Project_Specifications.md`
+  Original project brief for reference.
 
-If those tools are not yet installed, the codebase still supports basic standard-library validation:
+## Corpus Note
 
-```bash
-python3 -m unittest discover -s tests -p 'test_*.py'
-python3 scripts/smoke_chat.py
-```
+If `data/raw_pdfs/` still contains the older legacy files, replace them with the actual
+target insurer PDFs before making any parser decision.
 
-## Current Status
+## Setup
 
-This repo now includes:
-
-- package scaffolding for ingestion, retrieval, orchestration, guardrails, API, UI, and observability
-- selectable parser, embedder, and vector-store backends with automatic fallback when optional dependencies are missing
-- seed evaluation datasets and harness scripts
-- deterministic fallback implementations that work without external ML/runtime libraries
-- documentation structure aligned with the original project specification
-
-## Ingestion Workflow
-
-Build the local index with explicit backends when you want to force a parser or storage path:
+Install dependencies into the local venv:
 
 ```bash
-python3 scripts/build_index.py \
-  --parser-backend text_fallback \
-  --embedder-backend hashing \
-  --vector-store-backend jsonl
+python3 -m pip install -e .
 ```
 
-Once dependencies are installed, swap `text_fallback` for `pymupdf4llm` or `docling`, `hashing` for `sentence_transformers`, and `jsonl` for `chroma`.
-
-## Retrieval Lab Dashboard
-
-To turn the ingestion and retrieval pipeline into a portfolio-friendly comparison artefact, build a benchmark report and open the Streamlit lab:
+Open Jupyter Lab:
 
 ```bash
-python3 scripts/build_benchmark_report.py \
-  --parser-backends pymupdf4llm docling \
-  --embedder-backends hashing sentence_transformers \
-  --vector-store-backends jsonl chroma
-
-streamlit run src/quoteguard/ui/app.py
+.venv/bin/python -m jupyter lab
 ```
 
-The `Retrieval Lab` tab visualises:
+Or open the notebook directly in VS Code using the `.venv` interpreter.
 
-- parser-by-parser timing across parse, chunk, index, and query stages
-- sections and chunks produced per document
-- sample parsed section previews by backend
-- per-question retrieval latency and top retrieved chunks side by side
+## Working Rule
 
-## Next Iteration Points
+Do not branch back out into app structure until the parser choice is made from real corpus evidence.
 
-- fetch and inspect real insurer PDFs, then compare `pymupdf4llm` vs `docling` on the actual corpus
-- replace seed eval datasets with manually reviewed corpus-backed examples
-- wire the LLM client into real Ollama calls instead of the current stubbed cache-first fallback
-- add real Streamlit and FastAPI execution in an environment with dependencies installed
+Once the parser is chosen, the next phases are:
+
+1. chunking strategy
+2. retrieval sanity checks
+3. gold question set
+4. retrieval benchmark
+5. LLM and guardrails

@@ -1,0 +1,2 @@
+file_name,parser,parse_time_ms,page_count,parse_time_per_page_ms,sections_detected,total_extracted_characters,tables_detected,failed_pages,empty_pages,warnings_errors,output_size_bytes,run_dir
+Allianz_Business_PDS.pdf,pymupdf4llm,13841.74,100,138.42,611,366067,0,0,0,,487337,/Users/williamcatt/Documents/Projects/QuoteGuard/data/processed/parser_lab/20260507T043726Z_pymupdf4llm
