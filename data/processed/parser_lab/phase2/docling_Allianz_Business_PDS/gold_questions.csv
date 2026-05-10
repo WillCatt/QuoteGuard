@@ -1,0 +1,11 @@
+question_id,question,expected_answer,answerable,supporting_pages,supporting_section_heading,difficulty,category,notes
+q01,,,True,,,easy,direct_lookup,
+q02,,,True,,,easy,direct_lookup,
+q03,,,True,,,medium,direct_lookup,
+q04,,,True,,,easy,definition,
+q05,,,True,,,medium,definition,
+q06,,,True,,,medium,condition_or_exclusion,
+q07,,,True,,,hard,condition_or_exclusion,
+q08,,,True,,,medium,limit_or_table,
+q09,,,True,,,hard,limit_or_table,
+q10,,,False,,,medium,unanswerable,Leave supporting_pages blank for the unanswerable question.
