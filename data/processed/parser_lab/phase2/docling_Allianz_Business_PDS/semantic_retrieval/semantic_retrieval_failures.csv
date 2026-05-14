@@ -1,1 +1,4 @@
-
+retriever,chunk_label,model_name,error
+sentence_transformers,section_500_o10,BAAI/bge-small-en-v1.5,"RuntimeError: Cannot send a request, as the client has been closed."
+sentence_transformers,hybrid_500_o10,BAAI/bge-small-en-v1.5,"RuntimeError: Cannot send a request, as the client has been closed."
+sentence_transformers,hybrid_800_o20,BAAI/bge-small-en-v1.5,"RuntimeError: Cannot send a request, as the client has been closed."

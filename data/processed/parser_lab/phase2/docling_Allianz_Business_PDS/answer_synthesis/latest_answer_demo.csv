@@ -1,0 +1,6 @@
+question,status,retriever,chunk_label,ollama_used,top_score,notes,answer
+What does the Commercial Property Section cover?,extractive,tfidf,hybrid_800_o20,False,0.3007,Ollama disabled; using deterministic extractive fallback.,"Grounded answer from retrieved excerpts:
+- or which is insured under any other policy providing indemnity for the same cover as described in the Commercial Property Section, Theft Section, Money Section and/or Glass Section of the Policy, or - c. [p. 56]
+- Damage to other property, which, had it been insured under the Policy, would have resulted in valid claim under the Commercial Property Section, Theft Section, Money Section and/or Glass Section or Defined Event 2 above and which occurs: - a. [p. 56]
+- or would have been had there not been an Excess under the Commercial Property Section, Theft Section, Money Section and/or Glass Section of the Policy, or - b. [p. 56]
+- the discharge of contract purchases, cancellation notices, fi nes or damages for breach of contracts for the purchase of goods or services You cannot use during the Indemnity Period, less the value of these goods to You or the amount received for their sale; but only where such is due to Damage to the Property Insured which has resulted in an admissible claim under the Commercial Property Section or Theft Section of the Policy. [p. 64]"
