@@ -1,0 +1,7 @@
+page_number,heading_path,filter_reason,preview
+1,Document,empty_body,
+3,Document,blank_page,This page has been left blank intentionally.
+4,Document > Table of contents,table_of_contents,| | page | | page | |---------------------------------------------------|--------|-------------------------------------------------|--------| | Introduction | 5 | Money Section | 33 | | Summary of the available covers | 
+98,Document,blank_page,This page has been left blank intentionally.
+99,Document,too_short_generic,No text extracted
+100,Document,empty_body,
