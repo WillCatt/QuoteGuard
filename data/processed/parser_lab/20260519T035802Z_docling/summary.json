@@ -1,0 +1,17 @@
+[
+  {
+    "file_name": "Allianz_Business_PDS.pdf",
+    "parser": "docling",
+    "parse_time_ms": 48379.66,
+    "page_count": 100,
+    "parse_time_per_page_ms": 483.8,
+    "sections_detected": 619,
+    "total_extracted_characters": 378035,
+    "tables_detected": 0,
+    "failed_pages": 0,
+    "empty_pages": 0,
+    "warnings_errors": "",
+    "output_size_bytes": 499656,
+    "run_dir": "/Users/williamcatt/Documents/Projects/QuoteGuard/data/processed/parser_lab/20260519T035802Z_docling"
+  }
+]

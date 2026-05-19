@@ -1,10 +1,10 @@
 run_label,retriever,chunk_label,model_name,questions_evaluated,answerable_questions,hit_at_1,hit_at_3,recall_at_5,mrr_at_5,ndcg_at_5,context_precision,context_recall,latency_ms,error
-tfidf::hybrid_800_o20,tfidf,hybrid_800_o20,tfidf,20,19,0.789,0.842,0.895,0.818,0.836,0.179,0.895,0.53,
-lexical_bm25::section_500_o10,lexical_bm25,section_500_o10,bm25_notebook,20,19,0.684,0.737,0.842,0.734,0.76,0.168,0.842,12.14,
-lexical_bm25::hybrid_800_o20,lexical_bm25,hybrid_800_o20,bm25_notebook,20,19,0.684,0.789,0.789,0.719,0.737,0.158,0.789,15.26,
-lexical_bm25::hybrid_500_o10,lexical_bm25,hybrid_500_o10,bm25_notebook,20,19,0.579,0.737,0.842,0.675,0.717,0.168,0.842,16.98,
-tfidf::hybrid_500_o10,tfidf,hybrid_500_o10,tfidf,20,19,0.526,0.737,0.789,0.642,0.68,0.158,0.789,0.53,
-tfidf::section_500_o10,tfidf,section_500_o10,tfidf,20,19,0.526,0.684,0.789,0.62,0.662,0.158,0.789,0.61,
+tfidf::hybrid_800_o20,tfidf,hybrid_800_o20,tfidf,20,19,0.789,0.842,0.895,0.818,0.836,0.179,0.895,0.6,
+lexical_bm25::section_500_o10,lexical_bm25,section_500_o10,bm25_notebook,20,19,0.684,0.737,0.842,0.734,0.76,0.168,0.842,11.36,
+lexical_bm25::hybrid_800_o20,lexical_bm25,hybrid_800_o20,bm25_notebook,20,19,0.684,0.789,0.789,0.719,0.737,0.158,0.789,15.33,
+lexical_bm25::hybrid_500_o10,lexical_bm25,hybrid_500_o10,bm25_notebook,20,19,0.579,0.737,0.842,0.675,0.717,0.168,0.842,16.16,
+tfidf::hybrid_500_o10,tfidf,hybrid_500_o10,tfidf,20,19,0.526,0.737,0.789,0.642,0.68,0.158,0.789,0.56,
+tfidf::section_500_o10,tfidf,section_500_o10,tfidf,20,19,0.526,0.684,0.789,0.62,0.662,0.158,0.789,0.59,
 sentence_transformers::section_500_o10,sentence_transformers,section_500_o10,BAAI/bge-small-en-v1.5,0,0,,,,,,,,,"RuntimeError: Cannot send a request, as the client has been closed."
 sentence_transformers::hybrid_500_o10,sentence_transformers,hybrid_500_o10,BAAI/bge-small-en-v1.5,0,0,,,,,,,,,"RuntimeError: Cannot send a request, as the client has been closed."
 sentence_transformers::hybrid_800_o20,sentence_transformers,hybrid_800_o20,BAAI/bge-small-en-v1.5,0,0,,,,,,,,,"RuntimeError: Cannot send a request, as the client has been closed."

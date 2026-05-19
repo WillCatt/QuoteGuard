@@ -1,0 +1,6 @@
+question_id,category,answerable,expected_pages,same_retrieved_context,extractive_status,extractive_top_score,extractive_has_citation,extractive_cited_expected_overlap,extractive_retrieved_expected_overlap,extractive_support_expected_overlap,extractive_unanswerable_handled,ollama_status,ollama_used,ollama_top_score,ollama_has_citation,ollama_cited_expected_overlap,ollama_retrieved_expected_overlap,ollama_support_expected_overlap,ollama_unanswerable_handled
+q001,direct_lookup,True,7,True,extractive,0.1683,True,1,1,1,,fallback_extractive,False,0.1683,True,1,1,1,
+q006,definition,True,16,True,extractive,0.1343,True,0,0,0,,fallback_extractive,False,0.1343,True,0,0,0,
+q020,unanswerable,False,13,True,extractive,0.116,True,1,1,1,False,fallback_extractive,False,0.116,True,1,1,1,False
+q002,direct_lookup,True,9,True,extractive,0.1689,True,0,1,0,,fallback_extractive,False,0.1689,True,0,1,0,
+q003,direct_lookup,True,10,True,extractive,0.112,True,1,1,1,,fallback_extractive,False,0.112,True,1,1,1,

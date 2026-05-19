@@ -1,4 +1,4 @@
 parser,total_parse_time_ms,avg_parse_time_ms,avg_parse_time_per_page_ms,total_extracted_characters,total_sections
-docling,47318.71,47318.71,473.19,378035,619
-pymupdf4llm,12067.3,12067.3,120.67,366067,611
-pymupdf_text,131.16,131.16,1.31,388564,99
+docling,48379.66,48379.66,483.8,378035,619
+pymupdf4llm,12171.91,12171.91,121.72,366067,611
+pymupdf_text,124.04,124.04,1.24,388564,99
